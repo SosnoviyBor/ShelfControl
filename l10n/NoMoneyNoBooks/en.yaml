@@ -1,0 +1,13 @@
+message_bookBuyable: The shopkeeper won't let you read without buying.
+message_bookOwned: The pages refuse to open for you.
+
+page_name: No Money - No Books
+page_description: To be able to read other people's books, you actually need to buy them. Or steal.
+
+settings_groupName: Settings
+mode_name: Restrict Reading For
+mode_description: |
+  None - disables the mod
+  Only buyable - restrcits only books owned by a book vendor
+  Any owned - restricts all owned books
+showMessages_name: Show Mesages
