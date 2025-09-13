@@ -1,4 +1,0 @@
-GLOBAL: scripts/NoMoneyNoBooks/global.lua
-
-PLAYER: scripts/NoMoneyNoBooks/settingsPlayer.lua
-GLOBAL: scripts/NoMoneyNoBooks/settingsGlobal.lua

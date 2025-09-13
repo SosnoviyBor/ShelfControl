@@ -1,7 +1,4 @@
-message_bookBuyable: The shopkeeper won't let you read without buying.
-message_bookOwned: The pages refuse to open for you.
-
-page_name: No Money - No Books
+page_name: Shelf Control
 page_description: To be able to read other people's books, you actually need to buy them. Or steal.
 
 settings_groupName: Settings

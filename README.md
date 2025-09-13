@@ -1,4 +1,4 @@
-# No Money - No Books (OpenMW)
+# Shelf Control (OpenMW)
 
 To be able to read other people's books, you actually need to buy them. Or steal.
 
@@ -41,6 +41,7 @@ No, it will not be changed (sneak status is not exposed to the Lua API yet).
 
 - [trav's OpenMW Books Enhanced](https://www.nexusmods.com/morrowind/mods/55126) by **trav** - Replaces the book/scroll in-game UI with a custom one mimicking the vanilla look, but with additional features like adjustable size.
 - [Book Pickup](https://www.nexusmods.com/morrowind/mods/46625) by **NullCascade and Zackhasacat** - Lets you pick up a book without opening it first
+- Dead Mer Tell No Tales
 
 ## Credits
 
