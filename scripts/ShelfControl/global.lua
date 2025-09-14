@@ -2,42 +2,58 @@ local storage = require("openmw.storage")
 local I = require("openmw.interfaces")
 local types = require("openmw.types")
 
-require("scripts.ShelfControl.bookStatusChecker")
+require("scripts.ShelfControl.bookChecker")
+require("scripts.ShelfControl.cellChecker")
 require("scripts.ShelfControl.messageManager")
+require("scripts.ShelfControl.model.owner")
 
 local sectionBuyable = storage.globalSection("ShelfControl_buyable")
 local sectionOwned = storage.globalSection("ShelfControl_owned")
 local sectionMisc = storage.globalSection("ShelfControl_misc")
 
-I.Activation.addHandlerForType(types.Book, function(book, actor)
-    -- player need to activate the book
-    if not types.Player.objectIsInstance(actor) then return true end
-    if sectionMisc:get("ignoreBooksWithMWScripts") and book.record.mwscript then return true end
+local function handleBlocked(owner, reason)
+    if sectionMisc:get("enableMessages") then
+        ShowMessage(reason)
+    end
+    if sectionMisc:get("enableDebug") then
+        PrintOwnerInfo(owner)
+    end
+    return false
+end
 
-    ---@class owner
-    ---@field recordId string
-    ---@field record any
-    ---@field sellsBooks boolean
-    ---@field self any
-    ---@field isDead boolean
-    ---@field disposition number
-    local owner = {}
-
-    if sectionBuyable:get("supressBuyable") and IsBuyable(book, owner, actor)
-       and sectionBuyable:get("buyableMinimumDisposition") <= owner.disposition then
-        if sectionMisc:get("enableMessages") then
-            ShowMessage(owner, BUYABLE)
-        end
-        return false
-
-    elseif sectionOwned:get("supressOwned") and IsOwned(book, owner, actor)
-       and sectionBuyable:get("ownedMinimumDisposition") <= owner.disposition then
-        if sectionMisc:get("enableMessages") then
-            ShowMessage(owner, OWNED)
-        end
-        return false
-
-    else
+local function onBookActivation(book, actor)
+    if not types.Player.objectIsInstance(actor) then
         return true
     end
-end)
+
+    if sectionMisc:get("ignoreBooksWithMWScripts")
+       and types.Book.record(book).mwscript then
+        return true
+    end
+
+    local owner = CollectOwnerData(book, actor)
+
+    -- Buyable books check
+    if sectionBuyable:get("supressBuyable")
+       and IsBuyable(owner)
+       and sectionBuyable:get("buyableMinimumDisposition") > owner.disposition
+       and not LocationIsWhitelisted(book, owner) then
+        return handleBlocked(owner, BUYABLE)
+    end
+
+    -- Owned books check
+    if sectionOwned:get("supressOwned")
+       and IsOwned(owner)
+       and sectionOwned:get("ownedMinimumDisposition") > owner.disposition
+       and not LocationIsWhitelisted(book, owner) then
+        return handleBlocked(owner, OWNED)
+    end
+
+    -- Fallback: allowed
+    if sectionMisc:get("enableDebug") then
+        PrintOwnerInfo(owner)
+    end
+    return true
+end
+
+I.Activation.addHandlerForType(types.Book, onBookActivation)

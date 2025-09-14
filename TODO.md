@@ -1,3 +1,1 @@
-- Check for libraries, temples and imperial cults
 - Add more message variants
-- Add Dead Mer Tell No Tales to the mod recomendations

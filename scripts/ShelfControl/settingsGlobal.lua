@@ -3,8 +3,9 @@ local I = require('openmw.interfaces')
 I.Settings.registerGroup {
     key = 'ShelfControl_buyable',
     page = 'ShelfControl',
-    l10n = 'ShelfControl',
+    l10n = 'ShelfControl_settings',
     name = 'buyable_groupName',
+    description = 'buyable_groupDescription',
     permanentStorage = true,
     order = 1,
     settings = {
@@ -17,10 +18,11 @@ I.Settings.registerGroup {
         {
             key = 'buyableMinimumDisposition',
             name = 'buyableMinimumDisposition_name',
+            description = 'buyableMinimumDisposition_description',
             renderer = 'number',
             integer = true,
             default = 101,
-            min = 0,
+            min = 1,
             max = 101,
         },
     }
@@ -29,8 +31,9 @@ I.Settings.registerGroup {
 I.Settings.registerGroup {
     key = 'ShelfControl_owned',
     page = 'ShelfControl',
-    l10n = 'ShelfControl',
+    l10n = 'ShelfControl_settings',
     name = 'owned_groupName',
+    description = 'owned_groupDescription',
     permanentStorage = true,
     order = 2,
     settings = {
@@ -43,10 +46,11 @@ I.Settings.registerGroup {
         {
             key = 'ownedMinimumDisposition',
             name = 'ownedMinimumDisposition_name',
+            description = 'ownedMinimumDisposition_description',
             renderer = 'number',
             integer = true,
             default = 80,
-            min = 0,
+            min = 1,
             max = 101,
         },
     }
@@ -55,11 +59,18 @@ I.Settings.registerGroup {
 I.Settings.registerGroup {
     key = 'ShelfControl_misc',
     page = 'ShelfControl',
-    l10n = 'ShelfControl',
+    l10n = 'ShelfControl_settings',
     name = 'misc_groupName',
     permanentStorage = true,
     order = 3,
     settings = {
+        {
+            key = 'enableCellWhitelist',
+            name = 'enableCellWhitelist_name',
+            description = 'enableCellWhitelist_description',
+            renderer = 'checkbox',
+            default = true,
+        },
         {
             key = 'enableMessages',
             name = 'enableMessages_name',
@@ -71,6 +82,12 @@ I.Settings.registerGroup {
             name = 'ignoreBooksWithMWScripts_name',
             renderer = 'checkbox',
             default = true,
+        },
+        {
+            key = 'enableDebug',
+            name = 'enableDebug_name',
+            renderer = 'checkbox',
+            default = false,
         },
     }
 }

@@ -1,10 +1,42 @@
 page_name: Shelf Control
 page_description: To be able to read other people's books, you actually need to buy them. Or steal.
 
-settings_groupName: Settings
-mode_name: Restrict Reading For
-mode_description: |
-  None - disables the mod
-  Only buyable - restrcits only books owned by a book vendor
-  Any owned - restricts all owned books
-showMessages_name: Show Mesages
+buyable_groupName: Buyable Books
+buyable_groupDescription: |
+  A book is buyable if:
+  - It has a living NPC owner,
+  - The owner sells books,
+  - It is not faction-owned.
+  Dead or unloaded NPCs don't count as owners.
+supressBuyable_name: Enable Restrictions
+buyableMinimumDisposition_name: Minimum Disposition to Read
+buyableMinimumDisposition_description: |
+  If book owner's disposition is >= than this value, he'll allow you to read it.
+
+  101 -> Disable minimum disposition feature
+  0 -> Disable restrictions on buyable books
+
+owned_groupName: Owned Books
+owned_groupDescription: |
+  A book is owned if:
+  - It is owned by a faction, OR
+  - It has a living NPC owner.
+  Dead or unloaded NPCs don't count as owners.
+supressOwned_name: Enable Restrictions
+ownedMinimumDisposition_name: Minimum Disposition to Read
+ownedMinimumDisposition_description: |
+  If book owner's disposition is >= than this value, he'll allow you to read it.
+
+  101 -> Disable minimum disposition feature
+  0 -> Disable restrictions on owned books by NPC (not by faction)
+
+misc_groupName: Misceleneous
+enableCellWhitelist_name: Enable Logical Cell Whitelist
+enableCellWhitelist_description: |
+  Allows you to read any books in public places, where it makes sense:
+  - Libraries
+  - Temples
+  - Imperial cult shrines, chapels, etc
+enableMessages_name: Enable Messages
+ignoreBooksWithMWScripts_name: Ignore Books With Attached MWScripts
+enableDebug_name: Enable Debug Output
