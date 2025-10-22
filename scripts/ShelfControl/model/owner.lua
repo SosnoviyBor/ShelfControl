@@ -1,6 +1,9 @@
 local types = require("openmw.types")
+local storage = require("openmw.storage")
 
 require("scripts.ShelfControl.utils")
+
+local sectionMisc = storage.globalSection("ShelfControl_misc")
 
 --- Collect information about a book's owner.
 --- @param book any   The book being inspected.
@@ -28,7 +31,7 @@ function CollectOwnerData(book, player)
 
     -- Active actor reference
     if owner.recordId then
-        owner.self = GetActiveActorById(owner.recordId)
+        owner.self = GetActiveActorByRecordId(owner.recordId)
     end
 
     -- Dead check
@@ -47,10 +50,12 @@ function CollectOwnerData(book, player)
         owner.sellsBooks = false
     end
 
+    PrintOwnerInfo(owner)
     return owner
 end
 
 function PrintOwnerInfo(owner)
+    if not sectionMisc:get("enableDebug") then return end
     print("\nCurrent book owner info" ..
         "\nrecordId ->      " .. tostring(owner.recordId) ..
         "\nfactionId ->     " .. tostring(owner.factionId) ..

@@ -1,1 +1,2 @@
 - Add more message variants
+- Add stealing owned books via sneaking

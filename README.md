@@ -16,8 +16,10 @@ In book shops you need to actually buy books before reading them.
 A book is considered buyable if:
 
 - It has a living NPC owner (unloaded NPCs don't count as owners)
-- The owner sells books
 - It is not faction-owned
+- The owner sells books
+
+By default the only option to read a buyable book is to actually buy it, but you can enable an additional disposition check in the settings. Then if your disposition with bookseller is high enough, he might allow you to read it.
 
 ### Other People's Homes Are Not Libraries
 
@@ -25,8 +27,10 @@ Regular people won't charge you. They also won't let you touch their personal sh
 
 A book is considered owned if:
 
-- It is faction-owned, OR
-- It has a living NPC owner (unloaded NPCs don't count as owners)
+- OR it is faction-owned.
+  - It will be available to read only when you advance far enough in the faction that it becomes free for you
+- OR it has a living NPC owner (unloaded NPCs don't count as owners).
+  - It will be available to read if owner's disposition is high enough (configurable, 80 by default)
 
 ### Libraries Might Actually Be Libraries
 
@@ -35,21 +39,13 @@ It wouldn't make sense if you couldn't read in places that encourage reading. Th
 - **Libraries** - cell name contains `library`
 - **Temples** - cell name contains `temple`
 - **Imperial cult shrines, chapels, etc**
-  - cell name contains `chapel`
-  - cell name contains `shrine`
+  - OR cell name contains `chapel`
+  - OR cell name contains `shrine`
   - OR the book is owned by a member of the Imperial Cult faction / a `Priest` class NPC AND the cell has an Imperial shrine (any activator with `shrineimperial` script)
 
 ### Context-sensitive In-Game Messages
 
 [TODO]
-
-## Requirements
-
-OpenMW, duh.
-
-## Installation
-
-Install like any other OpenMW mod.
 
 ## Compatibility
 
@@ -64,17 +60,17 @@ Confirmed to be compatible:
 
 ## Known Issues
 
-Since you can no longer open buyable books, to steal them you'll need to do it with open inventory using the cursor.  
-Yes, this is intended.  
-No, it will not be changed (sneak status is not exposed to the Lua API yet).
+Since you can no longer open buyable books, to steal them you'll need to do it with open inventory using the cursor. Might be adressed in the future.
 
 ## Other Mods to Enhance Your Reading Experience
 
 - [trav's OpenMW Books Enhanced](https://www.nexusmods.com/morrowind/mods/55126) by **trav** - Replaces the book/scroll in-game UI with a custom one mimicking the vanilla look, but with additional features like adjustable size.
-- [Book Pickup](https://www.nexusmods.com/morrowind/mods/46625) by **NullCascade and Zackhasacat** - Lets you pick up a book without opening it first
-- [Dead Mer Tell No Tales](https://www.nexusmods.com/morrowind/mods/57431) by **Sosnoviy Bor (me 😳)** - Clears object ownership if their owner suddenly ceases to exist
+- [Book Pickup](https://www.nexusmods.com/morrowind/mods/46625) by **NullCascade and Zackhasacat** - Lets you pick up a book without opening it first.
+- [Dead Mer Tell No Tales](https://www.nexusmods.com/morrowind/mods/57431) by **Sosnoviy Bor (me 😳)** - Clears object ownership if their owner suddenly ceases to exist.
+- [The Spell Tomes - Magic Books of Morrowind to Study and Cast to](https://www.nexusmods.com/morrowind/mods/57432) by **Hyancinth** - Adds spell tomes that you can use for learning spells.
 
 ## Credits
 
 **Sosnoviy Bor** - Author  
-**BCEMXAXA** - Cover artwork
+**BCEMXAXA** - Cover artwork  
+**Hyancinth** - Message writing

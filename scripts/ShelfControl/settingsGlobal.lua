@@ -10,13 +10,13 @@ I.Settings.registerGroup {
     order = 1,
     settings = {
         {
-            key = 'supressBuyable',
+            key = 'supress',
             name = 'supressBuyable_name',
             renderer = 'checkbox',
             default = true,
         },
         {
-            key = 'buyableMinimumDisposition',
+            key = 'minDisposition',
             name = 'buyableMinimumDisposition_name',
             description = 'buyableMinimumDisposition_description',
             renderer = 'number',
@@ -38,13 +38,13 @@ I.Settings.registerGroup {
     order = 2,
     settings = {
         {
-            key = 'supressOwned',
+            key = 'supress',
             name = 'supressOwned_name',
             renderer = 'checkbox',
             default = true,
         },
         {
-            key = 'ownedMinimumDisposition',
+            key = 'minDisposition',
             name = 'ownedMinimumDisposition_name',
             description = 'ownedMinimumDisposition_description',
             renderer = 'number',

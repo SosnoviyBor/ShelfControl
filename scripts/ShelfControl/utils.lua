@@ -1,6 +1,9 @@
 local world = require("openmw.world")
 
-function GetActiveActorById(recordId)
+BUYABLE = "buyable"
+OWNED = "owned"
+
+function GetActiveActorByRecordId(recordId)
     for _, activeActor in ipairs(world.activeActors) do
         if activeActor.recordId == recordId then
             return activeActor
