@@ -1,0 +1,7 @@
+# whitelisted cells
+library: library
+temple: temple
+chapel: chapel
+shrine: shrine
+
+# blacklisted cells

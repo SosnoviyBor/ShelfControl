@@ -1,15 +1,17 @@
 local types = require("openmw.types")
+local core = require("openmw.core")
 
 require("scripts.ShelfControl.model.owner")
 
+local l10n = core.l10n("ShelfControl_cells")
 local whitelistedCellNames = {
-    "library",
-    "temple",
-    "chapel",
-    "shrine",
+    l10n("library"),
+    l10n("temple"),
+    l10n("chapel"),
+    l10n("shrine"),
 }
 local blacklistedCells = {
-    -- ["example"] = true,
+    -- [l10n("example")] = true,
 }
 
 local function itsACultShrine(cell, owner)
@@ -26,8 +28,8 @@ local function itsACultShrine(cell, owner)
     return false
 end
 
-function LocationIsWhitelisted(book, owner)
-    local cell = book.cell
+function LocationIsWhitelisted(ctx)
+    local cell = ctx.book.cell
     local cellName = string.lower(cell.name)
 
     if blacklistedCells[cellName] then return false end
@@ -38,7 +40,7 @@ function LocationIsWhitelisted(book, owner)
         end
     end
     -- double check if it's a cult shrine
-    if owner.self and itsACultShrine(cell, owner) then return true end
+    if ctx.owner.self and itsACultShrine(cell, ctx.owner) then return true end
 
     return false
 end

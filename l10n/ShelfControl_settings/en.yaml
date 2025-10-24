@@ -39,4 +39,5 @@ enableCellWhitelist_description: |
   - Imperial cult shrines, chapels, etc
 enableMessages_name: Enable Messages
 ignoreBooksWithMWScripts_name: Ignore Books With Attached MWScripts
+ignoreScrolls_name: Ignore Scrolls
 enableDebug_name: Enable Debug Output

@@ -2,22 +2,23 @@ local storage = require("openmw.storage")
 local I = require("openmw.interfaces")
 local types = require("openmw.types")
 
-require("scripts.ShelfControl.bookChecker")
-require("scripts.ShelfControl.cellChecker")
-require("scripts.ShelfControl.model.owner")
-require("scripts.ShelfControl.utils")
+local Owner = require("scripts.ShelfControl.model.owner")
+require("scripts.ShelfControl.checkers.books")
+require("scripts.ShelfControl.checkers.cells")
+require("scripts.ShelfControl.utils.openmw_utils")
+require("scripts.ShelfControl.messages.messageManager")
 
 local sectionBuyable = storage.globalSection("ShelfControl_buyable")
 local sectionOwned = storage.globalSection("ShelfControl_owned")
 local sectionMisc = storage.globalSection("ShelfControl_misc")
 
-local function checkOwnership(section, ownershipChecker, reason, owner, book)
+local function checkOwnership(section, ownershipChecker, ctx)
     if section:get("supress")
-        and ownershipChecker(owner)
-        and section:get("minDisposition") > owner.disposition
-        and not LocationIsWhitelisted(book, owner)
+        and ownershipChecker(ctx.owner)
+        and section:get("minDisposition") > ctx.owner.disposition
+        and not LocationIsWhitelisted(ctx)
     then
-        ShowMessage(reason)
+        ShowMessage(ctx)
         return true
     end
     return false
@@ -27,17 +28,21 @@ end
 local function onBookActivation(book, actor)
     -- if not player
     if not types.Player.objectIsInstance(actor) then return true end
-    -- if book has an mwscript attached and ignore setting is on
-    if sectionMisc:get("ignoreBooksWithMWScripts")
-        and types.Book.record(book).mwscript
-    then
-        return true
-    end
+    -- if book has an mwscript attached
+    local bookRecord = book.type.records[book.recordId]
+    if sectionMisc:get("ignoreBooksWithMWScripts") and bookRecord.mwscript then return true end
+    -- if book is a scroll
+    if sectionMisc:get("ignoreScrolls") and bookRecord.isScroll then return true end
 
-    local owner = CollectOwnerData(book, actor)
+    local ctx = {
+        book = book,
+        -- bookRecord = bookRecord,
+        owner = Owner.new(book, actor),
+        player = actor,
+    }
     -- check buyable and owned conditions
-    if checkOwnership(sectionBuyable, IsBuyable, BUYABLE, owner, book)
-        or checkOwnership(sectionOwned, IsOwned, OWNED, owner, book)
+    if checkOwnership(sectionBuyable, IsBuyable, ctx)
+        or checkOwnership(sectionOwned, IsOwned, ctx)
     then
         return false
     end

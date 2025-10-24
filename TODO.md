@@ -1,2 +1,2 @@
 - Add more message variants
-- Add stealing owned books via sneaking
+- Test stealing owned books via sneaking

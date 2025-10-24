@@ -47,20 +47,28 @@ It wouldn't make sense if you couldn't read in places that encourage reading. Th
 
 [TODO]
 
+## Requirements
+
+You need to play on one of the supported languages:
+
+- English
+
+If you want to add support for other languages, you need to translate only the `ShelfControl_cells` part of localization (which is just a couple lines long - messages are completely optional for the core functionality).
+
 ## Compatibility
 
-Books with scripts attached to them are ignored by default, so it shouldn't conflict with any mwscripts.
+Books with scripts attached to them are ignored by default, so it shouldn't conflict with any mwscripts. Though, it's toggleable if you feel particularly risky.
 
 Might conflict with other lua mods that alter owned book activation (similar to this mod). Though I haven't encountered any yet.
 
 Confirmed to be compatible:
 
-- [OpenMW Animated Pickup and Shop Around](https://www.nexusmods.com/morrowind/mods/54585) by **taitechnic** - Doesn't affect books
+- [OpenMW Animated Pickup and Shop Around](https://www.nexusmods.com/morrowind/mods/54585) by **taitechnic** - Doesn't affect books at all
 - [Book Pickup](https://www.nexusmods.com/morrowind/mods/46625) by **NullCascade and Zackhasacat** - Alters only unowned books
 
 ## Known Issues
 
-Since you can no longer open buyable books, to steal them you'll need to do it with open inventory using the cursor. Might be adressed in the future.
+Since you can no longer open buyable books, to steal them you'll need to do it with open inventory using the cursor. And due to current limitations of Lua API this cannot be changed yet.
 
 ## Other Mods to Enhance Your Reading Experience
 
