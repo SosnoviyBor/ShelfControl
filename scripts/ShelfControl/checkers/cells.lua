@@ -15,6 +15,7 @@ local blacklistedCells = {
 }
 
 local function itsACultShrine(cell, owner)
+    if not owner.self then return false end
     -- if cult srine is nearby
     for _, activator in pairs(cell:getAll(types.Activator)) do
         if types.Activator.record(activator).mwscript ~= "shrineimperial" then goto continue end
@@ -40,7 +41,7 @@ function LocationIsWhitelisted(ctx)
         end
     end
     -- double check if it's a cult shrine
-    if ctx.owner.self and itsACultShrine(cell, ctx.owner) then return true end
+    if itsACultShrine(cell, ctx.owner) then return true end
 
     return false
 end

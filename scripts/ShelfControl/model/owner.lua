@@ -10,7 +10,7 @@ local sectionMisc = storage.globalSection("ShelfControl_misc")
 --- @field recordId string|nil     The NPC's record ID (if the book has a direct owner).
 --- @field factionId string|nil    The owning faction's ID (if faction-owned).
 --- @diagnostic disable-next-line: undefined-doc-name
---- @field self types.Actor|nil          The active actor reference in the current cell (nil if not loaded).
+--- @field self types.Actor|nil    The active actor reference in the current cell (nil if not loaded).
 --- @field isDead boolean          Whether the owner is dead (or not in the same cell → treated as dead).
 --- @field disposition integer     Disposition of the owner towards the player (-1 if unavailable).
 --- @field sellsBooks boolean      Whether the owner offers books as a service.

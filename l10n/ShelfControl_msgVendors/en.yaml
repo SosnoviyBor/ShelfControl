@@ -100,10 +100,11 @@ racialPlayer:
       Best to pay first.
 
   # same messages for both player's and vendor's races
-  imperial: >
-    "East Empire Trading Company Regulations are clear:
-    no reading until the book is purchased,"
-    the Bookseller reminds you.
+  imperial:
+    - >
+      "East Empire Trading Company Regulations are clear:
+      no reading until the book is purchased,"
+      the Bookseller reminds you.
 
   nord:
     - >
@@ -142,10 +143,11 @@ racialVendor:
       so why read my book before buying?’”
 
   # same messages for both player's and vendor's races
-  imperial: >
-    "East Empire Trading Company Regulations are clear:
-    no reading until the book is purchased,"
-    the Bookseller reminds you.
+  imperial:
+    - >
+      "East Empire Trading Company Regulations are clear:
+      no reading until the book is purchased,"
+      the Bookseller reminds you.
 
   nord:
     - >
@@ -163,9 +165,10 @@ racialVendor:
       This book is not yours to take without proper payment.
 
 specific:
-  isCaiusMet: >
-    [Caius Cossades' words echo in your mind...]
-    "There's a time and a place for everything, but not now."
+  caiusMet:
+    - >
+      [Caius Cossades' words echo in your mind...]
+      "There's a time and a place for everything, but not now."
 
   ownedByJobasha:
     - >
@@ -174,15 +177,17 @@ specific:
       An note written in faded ink falls out of the cover:
       "Inventory of Jobasha. Unauthorized reading prohibited."
 
-  ordinatorsNearby: >
-    A neatly inked notice is affixed to the shelf:
-    "Browsing without purchase is forbidden.
-    Offenders will be reported to the Ordinators."
+  ordinatorsNearby:
+    - >
+      A neatly inked notice is affixed to the shelf:
+      "Browsing without purchase is forbidden.
+      Offenders will be reported to the Ordinators."
 
-  multipleVendorsNearby: >
-    The city dazzles, the merchants intimidate,
-    and the pages remain stubborn and shut.
-    The book is closed until you pay.
+  multipleVendorsNearby:
+    - >
+      The city dazzles, the merchants intimidate,
+      and the pages remain stubborn and shut.
+      The book is closed until you pay.
 
   dunmerVendorToOutlander:
     - >
