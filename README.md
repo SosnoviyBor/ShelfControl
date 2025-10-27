@@ -15,8 +15,7 @@ Also - you wouldn't appreciate it if a stranger barged into your home, grabbed a
 In book shops you need to actually buy books before reading them.  
 A book is considered buyable if:
 
-- It has a living NPC owner (unloaded NPCs don't count as owners)
-- It is not faction-owned
+- It has a living NPC owner (unloaded NPCs don't count)
 - The owner sells books
 
 By default the only option to read a buyable book is to actually buy it, but you can enable an additional disposition check in the settings. Then if your disposition with bookseller is high enough, he might allow you to read it.
@@ -27,10 +26,10 @@ Regular people won't charge you. They also won't let you touch their personal sh
 
 A book is considered owned if:
 
-- OR it is faction-owned.
-  - It will be available to read only when you advance far enough in the faction that it becomes free for you
-- OR it has a living NPC owner (unloaded NPCs don't count as owners).
+- OR it has a living NPC owner (unloaded NPCs don't count as owners)
   - It will be available to read if owner's disposition is high enough (configurable, 80 by default)
+- OR it is faction-owned
+  - It will be available to read only when you advance far enough in the faction that it becomes free for you (vanilla behavior, unaffected by the mod)
 
 ### Libraries Might Actually Be Libraries
 
@@ -45,7 +44,10 @@ It wouldn't make sense if you couldn't read in places that encourage reading. Th
 
 ### Context-sensitive In-Game Messages
 
-[TODO]
+Vendors will yell at you!  
+You will question your actions!  
+Ordinators will call you scum for a reason now!  
+And so much more...
 
 ## Requirements
 
@@ -68,7 +70,7 @@ Confirmed to be compatible:
 
 ## Known Issues
 
-Since you can no longer open buyable books, to steal them you'll need to do it with open inventory using the cursor. And due to current limitations of Lua API this cannot be changed yet.
+Since you can no longer open buyable books, to steal them you'll need to do it with open inventory using the cursor. And due to current limitations of Lua API this cannot be changed yet. The best I can offer is an option to disable restrictions for scrolls so far.
 
 ## Other Mods to Enhance Your Reading Experience
 

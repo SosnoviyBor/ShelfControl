@@ -1,15 +1,16 @@
-local nearby = require("openmw.nearby")
+local storage = require("openmw.storage")
 local types = require("openmw.types")
+local world = require("openmw.world")
 local core = require("openmw.core")
 
+require("scripts.ShelfControl.messages.utils")
 require("scripts.ShelfControl.utils.tables")
 require("scripts.ShelfControl.utils.consts")
 require("scripts.ShelfControl.utils.random")
 
-local l10n = core.l10n("ShelfControl_msgVendors")
-local racialVendorMessages = l10n("racialVendor")
-local racialPlayerMessages = l10n("racialPlayer")
-local specificMessages = l10n("specific")
+local l10n = core.l10n("ShelfControl_messages")
+local sectionMsgs = storage.globalSection("ShelfControl_messages")
+local msgSrc = "buyable_"
 
 local function ordinatorCity(ctx)
     -- by city name
@@ -21,7 +22,7 @@ local function ordinatorCity(ctx)
         end
     end
     -- by ordinators nearby
-    for _, actor in pairs(nearby.actors) do
+    for _, actor in pairs(world.activeActors) do
         if actor.type ~= types.NPC then goto continue end
         if string.find(string.lower(actor.recordId), "ordinator") > 0 then
             return true
@@ -31,15 +32,22 @@ local function ordinatorCity(ctx)
     return false
 end
 
-local function multipleVendorsNearby()
+local function multipleVendorsNearby(ctx)
     local vendorCount = 0
 
-    for _, actor in pairs(nearby.actors) do
+    for _, actor in pairs(world.activeActors) do
         if actor.type ~= types.NPC then goto continue end
 
         local actorRecord = actor.type.records[actor.recordId]
 
-        if TableIsEmpty(actorRecord.servicesOffered) then goto continue end
+        local isVendor = false
+        for _, isOffered in pairs(actorRecord.servicesOffered) do
+            if isOffered then
+                isVendor = true
+                break
+            end
+        end
+        if not isVendor then goto continue end
 
         vendorCount = vendorCount + 1
         if vendorCount >= MANY_VENDORS_THRESHOLD then
@@ -60,7 +68,7 @@ local specificRules = {
         key = "caiusMet",
     },
     {
-        cond = function(ctx) return ctx.owner.recordId == "Jobasha" end,
+        cond = function(ctx) return ctx.owner.recordId == "jobasha" end,
         key = "ownedByJobasha",
     },
     {
@@ -73,48 +81,94 @@ local specificRules = {
     },
     {
         cond = function(ctx)
-            local vendorRace = ctx.owner.type.records[ctx.owner.recordId]
+            local ownerRace = ctx.owner.self.type.records[ctx.owner.recordId]
             local playerRace = ctx.player.type.records[ctx.player.recordId]
-            return vendorRace == "dunmer" and playerRace ~= "dunmer"
+            return ownerRace == "dunmer" and playerRace ~= "dunmer"
         end,
         key = "dunmerVendorToOutlander",
     },
 }
 
-function CollectBuyableMessages(ctx)
-    local messages = {
-        ["generic"] = l10n("generic"),
-        ["specific"] = {},
-        ["racialPlayer"] = {},
-        ["racialVendor"] = {},
+local function collectGenericMessages(subgroups, ctx)
+    local prefix = msgSrc .. "generic"
+    return CollectAllMessagesByPrefix(prefix, l10n)
+end
+
+local function collectRacialMessages(subgroups, ctx)
+    local msgs = {}
+    for group, _ in pairs(subgroups) do
+        local actor = ctx[group].self
+        local race = actor.type.records[actor.recordId]
+        local prefix = msgSrc .. "racial_" .. group .. race
+        local collectedMsgs = CollectAllMessagesByPrefix(prefix, l10n)
+        AppendArray(msgs, collectedMsgs)
+    end
+    return msgs
+end
+
+local function collectSpecificMessages(subgroups, ctx)
+    local msgs = {}
+    for group, _ in pairs(subgroups) do
+        local prefix = msgSrc .. "specific_" .. group
+        local collectedMsgs = CollectAllMessagesByPrefix(prefix, l10n)
+        AppendArray(msgs, collectedMsgs)
+    end
+    return msgs
+end
+
+local msgCollectors = {
+    generic = collectGenericMessages,
+    racial = collectRacialMessages,
+    specific = collectSpecificMessages,
+}
+
+local function checkRacialMessages(actor)
+    local race = actor.type.records[actor.recordId].race
+    local firstRacialMessageKey = "racial_" .. race .. "_1"
+    return l10n(firstRacialMessageKey) ~= firstRacialMessageKey
+end
+
+function PickBuyableMessage(ctx)
+    local msgGroups = {
+        generic = true,
+        racial = {
+            player = false,
+            owner = false,
+        },
+        specific = {
+            caiusMet = false,
+            ownedByJobasha = false,
+            ordinatorsNearby = false,
+            multipleVendorsNearby = false,
+            dunmerVendorToOutlander = false,
+        },
     }
     local weights = {
-        ["generic"]      = 30,
-        ["specific"]     = 50,
-        ["racialPlayer"] = 10,
-        ["racialVendor"] = 10,
+        generic  = sectionMsgs:get("buyableGenericMsgWeight"),
+        racial   = sectionMsgs:get("buyableRacialMsgWeight"),
+        specific = sectionMsgs:get("buyableSpecificMsgWeight"),
     }
 
+    -- collect all possible message groups
     -- racial
-    local vendorRace = ctx.owner.type.records[ctx.owner.recordId]
-    local playerRace = ctx.player.type.records[ctx.player.recordId]
-    messages.racialVendor = racialVendorMessages[vendorRace] or {}
-    messages.racialPlayer = racialPlayerMessages[playerRace] or {}
-
+    msgGroups.racial.owner = checkRacialMessages(ctx.owner.self)
+    msgGroups.racial.player = checkRacialMessages(ctx.player)
     -- specific
     for _, rule in ipairs(specificRules) do
         if rule.cond(ctx) then
-            messages.specific:extend(specificMessages[rule.key])
+            msgGroups.specific[rule.key] = true
         end
     end
 
-    -- prune empty groups
-    for group in pairs(weights) do
-        if TableIsEmpty(messages[group]) then
-            messages[group] = nil
-            weights[group] = nil
-        end
-    end
+    PruneMessageGroups(msgGroups, weights)
 
-    return { messages, NormalizeWeights(weights) }
+    local pickedGroup = PickRandomWeightedKey(NormalizeWeights(weights))
+
+    local msgCollector = msgCollectors[pickedGroup]
+    local msgs = msgCollector(msgGroups[pickedGroup], ctx)
+    if msgs then
+        return RandomChoice(msgs)
+    else
+        return l10n("error")
+    end
 end

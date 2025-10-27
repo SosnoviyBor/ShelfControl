@@ -57,13 +57,58 @@ I.Settings.registerGroup {
 }
 
 I.Settings.registerGroup {
+    key = 'ShelfControl_messages',
+    page = 'ShelfControl',
+    l10n = 'ShelfControl_settings',
+    name = 'messages_groupName',
+    description = 'messages_groupDescription',
+    permanentStorage = true,
+    order = 3,
+    settings = {
+        {
+            key = 'enableMessages',
+            name = 'enableMessages_name',
+            renderer = 'checkbox',
+            default = true,
+        },
+        {
+            key = 'buyableGenericMsgWeight',
+            name = 'buyableGenericMsgWeight_name',
+            renderer = 'number',
+            default = 30,
+            min = 0,
+        },
+        {
+            key = 'buyableRacialMsgWeight',
+            name = 'buyableRacialMsgWeight_name',
+            renderer = 'number',
+            default = 10,
+            min = 0,
+        },
+        {
+            key = 'buyableSpecificMsgWeight',
+            name = 'buyableSpecificMsgWeight_name',
+            renderer = 'number',
+            default = 100,
+            min = 0,
+        },
+    }
+}
+
+I.Settings.registerGroup {
     key = 'ShelfControl_misc',
     page = 'ShelfControl',
     l10n = 'ShelfControl_settings',
     name = 'misc_groupName',
     permanentStorage = true,
-    order = 3,
+    order = 100,
     settings = {
+        {
+            key = 'modEnabled',
+            name = 'modEnabled_name',
+            renderer = 'checkbox',
+            default = true,
+        },
         {
             key = 'enableCellWhitelist',
             name = 'enableCellWhitelist_name',
@@ -82,12 +127,6 @@ I.Settings.registerGroup {
             name = 'ignoreScrolls_name',
             renderer = 'checkbox',
             default = false,
-        },
-        {
-            key = 'enableMessages',
-            name = 'enableMessages_name',
-            renderer = 'checkbox',
-            default = true,
         },
         {
             key = 'enableDebug',

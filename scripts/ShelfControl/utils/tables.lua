@@ -11,3 +11,9 @@ function TableIsEmpty(list)
     end
     return next(list) == nil
 end
+
+function AppendArray(dest, src)
+    for _, v in ipairs(src) do
+        table.insert(dest, v)
+    end
+end

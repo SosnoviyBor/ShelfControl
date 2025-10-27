@@ -22,3 +22,19 @@ function NormalizeWeights(weights)
 
     return normalized
 end
+
+function RandomChoice(list)
+    return list[math.random(#list)]
+end
+
+function PickRandomWeightedKey(weights)
+    local r = math.random()
+    local cumulative = 0
+
+    for group, weight in pairs(weights) do
+        cumulative = cumulative + weight
+        if r <= cumulative then
+            return group
+        end
+    end
+end

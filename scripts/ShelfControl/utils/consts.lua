@@ -1,3 +1,4 @@
+MAXINT = 2^53
 CitiesWithOrdinators = {
     "vivec",
     "mournhold",

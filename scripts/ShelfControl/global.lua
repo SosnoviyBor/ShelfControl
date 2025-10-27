@@ -26,6 +26,7 @@ end
 
 -- true = allow activation, false = block activation
 local function onBookActivation(book, actor)
+    if not sectionMisc:get("modEnabled") then return true end
     -- if not player
     if not types.Player.objectIsInstance(actor) then return true end
     -- if book has an mwscript attached

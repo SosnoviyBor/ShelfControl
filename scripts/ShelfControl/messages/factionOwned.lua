@@ -2,7 +2,7 @@ local core = require("openmw.core")
 
 local l10n = core.l10n("ShelfControl_msgFactions")
 
-function CollectFactionOwnedMessages(ctx)
+function PickFactionOwnedMessage(ctx)
     local messages = {
         ["generic"] = l10n("generic")
     }
