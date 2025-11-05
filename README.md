@@ -40,7 +40,7 @@ It wouldn't make sense if you couldn't read in places that encourage reading. Th
 - **Imperial cult shrines, chapels, etc**
   - OR cell name contains `chapel`
   - OR cell name contains `shrine`
-  - OR the book is owned by a member of the Imperial Cult faction / a `Priest` class NPC AND the cell has an Imperial shrine (any activator with `shrineimperial` script)
+  - OR the cell has an Imperial shrine (any activator with `shrineimperial` script) AND the book is owned by a member of the Imperial Cult faction / a `Priest` class NPC
 
 ### Context-sensitive In-Game Messages
 
@@ -55,7 +55,7 @@ You need to play on one of the supported languages:
 
 - English
 
-If you want to add support for other languages, you need to translate only the `ShelfControl_cells` part of localization (which is just a couple lines long - messages are completely optional for the core functionality).
+If you want to add support for other languages, you need to add translation only for the `ShelfControl_cells` part of localization (which is just a couple lines long).
 
 ## Compatibility
 
@@ -70,7 +70,7 @@ Confirmed to be compatible:
 
 ## Known Issues
 
-Since you can no longer open buyable books, to steal them you'll need to do it with open inventory using the cursor. And due to current limitations of Lua API this cannot be changed yet. The best I can offer is an option to disable restrictions for scrolls so far.
+Since you can no longer open certain owned books, to steal them you'll need to do it with open inventory using the cursor. And due to current limitations of Lua API this cannot be changed yet. The best I can offer so far is an option to disable restrictions for scrolls.
 
 ## Other Mods to Enhance Your Reading Experience
 

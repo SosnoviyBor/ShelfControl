@@ -12,6 +12,10 @@ local l10n = core.l10n("ShelfControl_messages")
 local sectionMsgs = storage.globalSection("ShelfControl_messages")
 local msgSrc = "buyable_"
 
+-- +----------------------------------------+
+-- | Dedicated functions for Specific group |
+-- +----------------------------------------+
+
 local function ordinatorCity(ctx)
     -- by city name
     local cell = ctx.book.cell
@@ -59,14 +63,11 @@ local function multipleVendorsNearby(ctx)
     return false
 end
 
+-- +--------------------------+
+-- | Rules for Specific group |
+-- +--------------------------+
+
 local specificRules = {
-    {
-        cond = function(ctx)
-            local playerQuests = ctx.player.type.quests(ctx.player)
-            return playerQuests["A1_1_FindSpymaster"].stage >= 14
-        end,
-        key = "caiusMet",
-    },
     {
         cond = function(ctx) return ctx.owner.recordId == "jobasha" end,
         key = "ownedByJobasha",
@@ -81,13 +82,36 @@ local specificRules = {
     },
     {
         cond = function(ctx)
-            local ownerRace = ctx.owner.self.type.records[ctx.owner.recordId]
-            local playerRace = ctx.player.type.records[ctx.player.recordId]
-            return ownerRace == "dunmer" and playerRace ~= "dunmer"
+            local disp = ctx.owner.self.type.getDisposition(ctx.owner.self, ctx.player)
+            return disp <= sectionMsgs:get("buyableLowDisposition")
         end,
-        key = "dunmerVendorToOutlander",
+        key = "dispositionLow"
     },
 }
+
+-- +-------------------------------+
+-- | Rules for non-Specific groups |
+-- +-------------------------------+
+
+local function checkRacialMessages(actor)
+    local race = actor.type.records[actor.recordId].race
+    local firstRacialMsgKey = msgSrc .. "racial_" .. race .. "_1"
+    return l10n(firstRacialMsgKey) ~= firstRacialMsgKey
+end
+
+local function checkFactionMessages(actor)
+    for _, faction in pairs(actor.type.getFactions(actor)) do
+        local firstFactionMsgKey = msgSrc .. "faction_" .. faction .. "_1"
+        if l10n(firstFactionMsgKey) ~= firstFactionMsgKey then
+            return true
+        end
+    end
+    return false
+end
+
+-- +-------------------------------------------------------+
+-- | Functions for collecting all messages based on groups |
+-- +-------------------------------------------------------+
 
 local function collectGenericMessages(subgroups, ctx)
     local prefix = msgSrc .. "generic"
@@ -106,6 +130,19 @@ local function collectRacialMessages(subgroups, ctx)
     return msgs
 end
 
+local function collectFactionMessages(subgroups, ctx)
+    local msgs = {}
+    for group, _ in pairs(subgroups) do
+        local actor = ctx[group].self
+        for _, faction in pairs(actor.type.getFactions(actor)) do
+            local prefix = msgSrc .. "faction_" .. group .. faction
+            local collectedMsgs = CollectAllMessagesByPrefix(prefix, l10n)
+            AppendArray(msgs, collectedMsgs)
+        end
+    end
+    return msgs
+end
+
 local function collectSpecificMessages(subgroups, ctx)
     local msgs = {}
     for group, _ in pairs(subgroups) do
@@ -119,14 +156,13 @@ end
 local msgCollectors = {
     generic = collectGenericMessages,
     racial = collectRacialMessages,
+    faction = collectFactionMessages,
     specific = collectSpecificMessages,
 }
 
-local function checkRacialMessages(actor)
-    local race = actor.type.records[actor.recordId].race
-    local firstRacialMessageKey = "racial_" .. race .. "_1"
-    return l10n(firstRacialMessageKey) ~= firstRacialMessageKey
-end
+-- +----------+
+-- | The core |
+-- +----------+
 
 function PickBuyableMessage(ctx)
     local msgGroups = {
@@ -135,17 +171,21 @@ function PickBuyableMessage(ctx)
             player = false,
             owner = false,
         },
+        faction = {
+            player = false,
+            owner = false,
+        },
         specific = {
-            caiusMet = false,
             ownedByJobasha = false,
             ordinatorsNearby = false,
             multipleVendorsNearby = false,
-            dunmerVendorToOutlander = false,
+            dispositionLow = false,
         },
     }
     local weights = {
         generic  = sectionMsgs:get("buyableGenericMsgWeight"),
         racial   = sectionMsgs:get("buyableRacialMsgWeight"),
+        faction  = sectionMsgs:get("buyableFactionMsgWeight"),
         specific = sectionMsgs:get("buyableSpecificMsgWeight"),
     }
 
@@ -153,6 +193,9 @@ function PickBuyableMessage(ctx)
     -- racial
     msgGroups.racial.owner = checkRacialMessages(ctx.owner.self)
     msgGroups.racial.player = checkRacialMessages(ctx.player)
+    -- faction
+    msgGroups.faction.owner = checkFactionMessages(ctx.owner.self)
+    msgGroups.faction.player = checkFactionMessages(ctx.player)
     -- specific
     for _, rule in ipairs(specificRules) do
         if rule.cond(ctx) then

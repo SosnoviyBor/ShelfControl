@@ -36,9 +36,11 @@ messages_groupDescription: >
   They don't have to equate to 100.
   Set weight to 0 to disable message group.
 enableMessages_name: Enable Messages
-buyableGenericMsgWeight_name: "Buyable: Generic Weight"
-buyableRacialMsgWeight_name: "Buyable: Racial Weight"
-buyableSpecificMsgWeight_name: "Buyable: Specific Weight"
+buyableLowDisposition_name: "Buyable Value: Low Disposition"
+buyableGenericMsgWeight_name: "Buyable Weight: Generic"
+buyableRacialMsgWeight_name: "Buyable Weight: Racial"
+buyableFactionMsgWeight_name: "Buyable Weight: Faction"
+buyableSpecificMsgWeight_name: "Buyable Weight: Specific"
 
 misc_groupName: Misceleneous
 modEnabled_name: Enable Mod

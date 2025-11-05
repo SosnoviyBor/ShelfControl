@@ -11,6 +11,24 @@
 - Book owner's aliveness and presence are now taken into account
 - Option for mod to ignore books with scripts
 - Option for mod to ignore scrolls
+- Context-aware messages
+  - Buyable book
+    - Generic messages
+    - Racial messages
+      - Player race
+      - Owner race
+    - Faction messages
+      - Player faction
+      - Owner faction
+    - Specific messages
+      - Owner is Jobasha
+      - There are ordinators nearby
+      - There are multiple vendors nearby
+      - Owner's disposition is low (30 by default)
+  - NPC-owned book
+      - Generic messages
+  - Faction-owned book
+      - Generic messages
 
 ### Changes
 

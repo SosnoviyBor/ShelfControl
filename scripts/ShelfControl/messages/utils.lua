@@ -15,8 +15,19 @@ local function tableIsEmptyOrFalse(tbl)
 end
 
 function PruneMessageGroups(messages, weights)
+    -- prune subgroups
+    for _, group in pairs(messages) do
+        if type(group) == "boolean" then goto continue end
+        for subgroup, val in pairs(group) do
+            if not val then
+                group[subgroup] = nil
+            end
+        end
+        ::continue::
+    end
+    -- prune full groups
     for key, weight in pairs(weights) do
-        if weight == 0 or (messages[key] ~= nil and tableIsEmptyOrFalse(messages[key])) then
+        if weight == 0 or tableIsEmptyOrFalse(messages[key]) then
             messages[key] = nil
             weights[key] = nil
         end

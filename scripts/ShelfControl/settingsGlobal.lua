@@ -72,6 +72,14 @@ I.Settings.registerGroup {
             default = true,
         },
         {
+            key = 'buyableLowDisposition',
+            name = 'buyableLowDisposition_name',
+            renderer = 'number',
+            integer = true,
+            default = 30,
+            min = -1,
+        },
+        {
             key = 'buyableGenericMsgWeight',
             name = 'buyableGenericMsgWeight_name',
             renderer = 'number',
@@ -81,6 +89,13 @@ I.Settings.registerGroup {
         {
             key = 'buyableRacialMsgWeight',
             name = 'buyableRacialMsgWeight_name',
+            renderer = 'number',
+            default = 10,
+            min = 0,
+        },
+        {
+            key = 'buyableFactionMsgWeight',
+            name = 'buyableFactionMsgWeight_name',
             renderer = 'number',
             default = 10,
             min = 0,

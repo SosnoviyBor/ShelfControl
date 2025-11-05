@@ -4,6 +4,8 @@ error: "Error! No message found!"
 # | Buyable books |
 # +---------------+
 
+# ===== Generic =====
+
 buyable_generic_1: "The book is heavy in your hands and you remember: all knowledge in Morrowind has a price, and you have not paid for this yet."
 buyable_generic_2: "A spark lights your curiosity as you open the cover to read, but the Merchant's eyes remind you: every word in this land comes with a price."
 buyable_generic_3: "You imagine the secrets this tome/book holds, but even desire is powerless here. The book's knowledge cannot be received without coin."
@@ -31,6 +33,10 @@ buyable_generic_24: "Next to the book, there is a scribbled note: \"Coin is key.
 buyable_generic_25: "An old note is tucked between the stacks: \"Theft of knowledge is theft all the same. Payment is the path to wisdom.\""
 buyable_generic_26: "A warning is pinned below the book: \"DELICATE. Spine breaks easily. Browsers pay for damages.\""
 buyable_generic_27: "A written warning next to the book carries a harsh scrawl: \"Outlanders pay if caught prying.\""
+buyable_generic_28: "The scent of parchment and ink hangs in the air, but the book does not open for you."
+buyable_generic_29: "\"This text belongs to my shop until its price is met,\" the Bookseller says. \"Until then, you may look at the cover, but not inside.\""
+
+# ===== Racial =====
 
 buyable_racial_player_khajit_1: "The seller sneers at you from over the counter. \"Not for your hands, beast. Coin first, if you even have it.\""
 buyable_racial_player_khajit_2: "You sense the merchant’s disapproval before a word is spoken. Best to pay first."
@@ -58,7 +64,52 @@ buyable_racial_owner_nord_2: "No reading unless you've bought it. This isn't a M
 buyable_racial_owner_altmer_1: "\"Do you think knowledge is free, outlander? Hardly.\" The Bookseller scoffs."
 buyable_racial_owner_altmer_2: "Even the finest mind must respect the cost of knowledge. This book is not yours to take without proper payment."
 
-buyable_specific_caiusMet_1: "[Caius Cossades' words echo in your mind...] \"There's a time and a place for everything, but not now.\""
+# ===== Faction-based =====
+
+buyable_faction_owner_hlaalu_1: "\"Knowledge is a luxury, outlander, not a gift.\" The Bookseller has a thin smile. \"Settle the matter of coin, and the book is yours to read.\""
+buyable_faction_owner_hlaalu_2: "The Hlaalu merchant offers a thin smile. “Information is like any other item, outlander. If you want it, you must pay in gold.”"
+buyable_faction_owner_hlaalu_3: "You feel the weight of the nearby Hlaalu’s gaze. Books are not knowledge here, only inventory."
+buyable_faction_owner_hlaalu_4: "\"This volume is not for idle eyes, outlander. Gold first, then read. This is the custom of House Hlaalu.\""
+buyable_faction_owner_hlaalu_5: "\"Do not mistake this for a gift. Knowledge is counted and entered in the ledger, as all things are.\""
+buyable_faction_owner_hlaalu_6: "\"House Hlaalu does not deny learning, outlander. We merely ask for the proper exchange.\""
+buyable_faction_owner_hlaalu_7: "A nearby leaflet bears a crisp script: \"Purchase required.\""
+
+buyable_faction_owner_reoran_1: "\"Discipline demands restraint.\" The Redoran bookseller scowls. \"Until you have purchased the book, it will remain closed.\""
+buyable_faction_owner_reoran_2: "The Redoran bookseller shakes their head. “Discipline means respecting what is not yet yours. Purchase the book, and then you may read.”"
+buyable_faction_owner_reoran_3: "Under Redoran law, what is not yet yours may not yet be taken. Even books, it seems."
+buyable_faction_owner_reoran_4: "\"In Redoran land, property is respected,\" the Bookseller says. \"Lay down your coin, and then you can read.\""
+
+buyable_faction_owner_telvanni_1: "As you open the cover, the Telvanni trader sneers. “My books are not yours to plunder. Pay, or begone. Power is never free.”"
+buyable_faction_owner_telvanni_2: "“If you cannot afford a book, what business have you with knowledge at all?”"
+buyable_faction_owner_telvanni_3: "\"Do you believe wisdom should be given to you freely, like Temple bread to the poor? How quaint.\""
+buyable_faction_owner_telvanni_4: "\"Lay down coin, outlander. Or lay down your hand.\" The Telvanni speaks evenly, as if both payments are acceptable. \"I require one to open that book.\""
+buyable_faction_owner_telvanni_5: "There is a scrawled note: \"Do not touch what your coin cannot buy, worm.\""
+buyable_faction_owner_telvanni_6: "\"This is not the Mages Guild. These shelves are Telvanni,\" the Bookseller reminds you. \"Telvanni knowledge is not given for free.\""
+buyable_faction_owner_telvanni_7: "You sense a powerful magic ward as your hand touches the cover. Perhaps its owner will remove it upon payment."
+
+buyable_faction_player_hlaalu_1: "\"Coin first, read after. That is the way of trade, outlander. Surely one of our own knows better,\" the Hlaalu merchant says."
+buyable_faction_player_hlaalu_2: "Gold unlocks words, just as it unlocks doors. Without coin, the story stays closed."
+buyable_faction_player_hlaalu_3: "The weight of commerce keeps your hands from turning the page."
+buyable_faction_player_hlaalu_4: "Gold is king. Without coin, this book is worthless to you."
+buyable_faction_player_hlaalu_5: "Even a refined mind should respect the cost of knowledge. This book is not yours to take without proper payment."
+
+buyable_faction_player_redoran_1: "You want to read the book in front of you, but discipline says that curiosity is earned, not taken."
+buyable_faction_player_redoran_2: "To read without paying would feel like dishonor, a breach of Redoran discipline."
+buyable_faction_player_redoran_3: "\"To read without paying is to act without discipline and unworthy of House Redoran,\" the bookseller says."
+buyable_faction_player_redoran_4: "\"Honor and virtue,\" you think to yourself. To read without buying would be improper."
+buyable_faction_player_redoran_5: "\"I will not have Redoran kin grasping at unpaid pages like some Telvanni scribe’s servant. Pay.\""
+
+buyable_faction_player_telvanni_1: "A note sits on the shelf: \"Knowledge is not free. Those who think otherwise are fools.\""
+buyable_faction_player_telvanni_2: "Each page seems to whisper your name, but the thought of unpaid knowledge keeps you from opening the book."
+buyable_faction_player_telvanni_3: "There is wisdom waiting inside the book cover, but wisdom has never been free. Not in Morrowind."
+buyable_faction_player_telvanni_4: "Even a refined mind should respect the cost of knowledge. This book is not yours to take without proper payment."
+buyable_faction_player_telvanni_5: "Magic cannot open these pages, only mundane coin."
+buyable_faction_player_telvanni_6: "You sense this book contains hidden knowledge. Curiosity in this place, however, is unwise without wealth to match it."
+buyable_faction_player_telvanni_7: "You know how knowledge is kept in this House: seized, guarded, and paid for. You have not yet paid."
+buyable_faction_player_telvanni_8: "\"If you are Telvanni, you understand that what is not purchased must be taken by force,\" the bookseller states. \"Are you prepared to do either?\""
+buyable_faction_player_telvanni_9: "Your House teaches: power taken is power deserved. Power purchased is power earned. You have done neither."
+
+# ===== Specific =====
 
 buyable_specific_ownedByJobasha_1: "Jobasha says, \"A fair price for rare words, friend.\""
 buyable_specific_ownedByJobasha_2: "An note written in faded ink falls out of the cover: \"Inventory of Jobasha. Unauthorized reading prohibited.\""
@@ -67,8 +118,11 @@ buyable_specific_ordinatorsNearby_1: "A neatly inked notice is affixed to the sh
 
 buyable_specific_multipleVendorsNearby_1: "The city dazzles, the merchants intimidate, and the pages remain stubborn and shut. The book is closed until you pay."
 
-buyable_specific_dunmerVendorToOutlander_1: "The Bookseller narrows their eyes as you browse the books. \"Do you take us for fools, outlander? Pay for what you would read.\""
-buyable_specific_dunmerVendorToOutlander_2: "“Do you think yourself entitled, outlander? Pay, or get out,\" you hear when you try to open this book."
+buyable_specific_dispositionLow_1: "The bookseller snaps. \"Think you can steal a glance at my books? Pay or get out.\""
+buyable_specific_dispositionLow_2: "The merchant’s glare is a warning and a reminder: you are not trusted here, and curiosity will not be indulged."
+buyable_specific_dispositionLow_3: "“Do you think yourself entitled, outlander? Pay, or get out,\" you hear when you try to open this book."
+buyable_specific_dispositionLow_4: "The Bookseller narrows their eyes as you browse the books. \"Do you take us for fools, outlander? Pay for what you would read.\""
+
 
 # +-----------------+
 # | NPC Owned books |
