@@ -5,3 +5,4 @@ CitiesWithOrdinators = {
     "necrom",
 }
 MANY_VENDORS_THRESHOLD = 3
+LOW_DISPOSITION = 30

@@ -4,7 +4,7 @@ require("scripts.ShelfControl.messages.buyable")
 require("scripts.ShelfControl.messages.npcOwned")
 require("scripts.ShelfControl.messages.factionOwned")
 
-local sectionMsgs = storage.globalSection("ShelfControl_messages")
+local sectionMisc = storage.globalSection("ShelfControl_misc")
 
 local dispatch = {
     { check = function(o) return o.recordId and not o.sellsBooks end,   fn = PickNPCOwnedMessage },
@@ -13,7 +13,7 @@ local dispatch = {
 }
 
 function ShowMessage(ctx)
-    if not sectionMsgs:get("enableMessages") then return end
+    if not sectionMisc:get("enableMessages") then return end
 
     for _, rule in ipairs(dispatch) do
         if rule.check(ctx.owner) then

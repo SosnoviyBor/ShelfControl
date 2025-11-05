@@ -36,6 +36,12 @@ buyable_generic_27: "A written warning next to the book carries a harsh scrawl: 
 buyable_generic_28: "The scent of parchment and ink hangs in the air, but the book does not open for you."
 buyable_generic_29: "\"This text belongs to my shop until its price is met,\" the Bookseller says. \"Until then, you may look at the cover, but not inside.\""
 
+# ===== Unlockable =====
+
+byable_unlockable_caisuMet_1: "Caius Cossades' words echo in your mind... \"There's a time and a place for everything, but not now.\""
+
+byable_unlockable_nerevarine_1: "As you nearly touch the spine of this book, you hear: \"I don't care if you're the Nerevarine. My books, my rules. Now pay up.\""
+
 # ===== Racial =====
 
 buyable_racial_player_khajit_1: "The seller sneers at you from over the counter. \"Not for your hands, beast. Coin first, if you even have it.\""

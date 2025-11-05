@@ -1,4 +1,3 @@
-local storage = require("openmw.storage")
 local types = require("openmw.types")
 local world = require("openmw.world")
 local core = require("openmw.core")
@@ -9,12 +8,11 @@ require("scripts.ShelfControl.utils.consts")
 require("scripts.ShelfControl.utils.random")
 
 local l10n = core.l10n("ShelfControl_messages")
-local sectionMsgs = storage.globalSection("ShelfControl_messages")
 local msgSrc = "buyable_"
 
--- +----------------------------------------+
--- | Dedicated functions for Specific group |
--- +----------------------------------------+
+-- +------------------------------------------+
+-- | Dedicated functions for conditial groups |
+-- +------------------------------------------+
 
 local function ordinatorCity(ctx)
     -- by city name
@@ -63,9 +61,26 @@ local function multipleVendorsNearby(ctx)
     return false
 end
 
--- +--------------------------+
--- | Rules for Specific group |
--- +--------------------------+
+-- +------------------------------+
+-- | Rules for conditional groups |
+-- +------------------------------+
+
+local unlockableRules = {
+    {
+        cond = function(ctx)
+            local quests = ctx.player.type.quests(ctx.player)
+            return quests["A1_1_FindSpymaster"].stage >= 14
+        end,
+        key = "caiusMet"
+    },
+    {
+        cond = function(ctx)
+            local quests = ctx.player.type.quests(ctx.player)
+            return quests["A2_6_Incarnate"].stage >= 70
+        end,
+        key = "nerevarine"
+    },
+}
 
 local specificRules = {
     {
@@ -83,15 +98,15 @@ local specificRules = {
     {
         cond = function(ctx)
             local disp = ctx.owner.self.type.getDisposition(ctx.owner.self, ctx.player)
-            return disp <= sectionMsgs:get("buyableLowDisposition")
+            return disp <= LOW_DISPOSITION
         end,
         key = "dispositionLow"
     },
 }
 
--- +-------------------------------+
--- | Rules for non-Specific groups |
--- +-------------------------------+
+-- +----------------------------------+
+-- | Rules for non-conditional groups |
+-- +----------------------------------+
 
 local function checkRacialMessages(actor)
     local race = actor.type.records[actor.recordId].race
@@ -167,6 +182,10 @@ local msgCollectors = {
 function PickBuyableMessage(ctx)
     local msgGroups = {
         generic = true,
+        unlockable = {
+            caiusMet = false,
+            nerevarine = false,
+        },
         racial = {
             player = false,
             owner = false,
@@ -183,10 +202,11 @@ function PickBuyableMessage(ctx)
         },
     }
     local weights = {
-        generic  = sectionMsgs:get("buyableGenericMsgWeight"),
-        racial   = sectionMsgs:get("buyableRacialMsgWeight"),
-        faction  = sectionMsgs:get("buyableFactionMsgWeight"),
-        specific = sectionMsgs:get("buyableSpecificMsgWeight"),
+        generic    = 30,
+        unlockable = 1,
+        racial     = 10,
+        faction    = 10,
+        specific   = 100,
     }
 
     -- collect all possible message groups
@@ -196,6 +216,12 @@ function PickBuyableMessage(ctx)
     -- faction
     msgGroups.faction.owner = checkFactionMessages(ctx.owner.self)
     msgGroups.faction.player = checkFactionMessages(ctx.player)
+    -- unlockable
+    for _, rule in ipairs(unlockableRules) do
+        if rule.cond(ctx) then
+            msgGroups.unlockable[rule.key] = true
+        end
+    end
     -- specific
     for _, rule in ipairs(specificRules) do
         if rule.cond(ctx) then

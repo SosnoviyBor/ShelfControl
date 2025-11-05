@@ -14,6 +14,9 @@
 - Context-aware messages
   - Buyable book
     - Generic messages
+    - Unlockable messages
+      - Caius is met (he recieved his package)
+      - Player is nerevarine (received the Moon-and-Star)
     - Racial messages
       - Player race
       - Owner race

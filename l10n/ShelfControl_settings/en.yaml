@@ -30,20 +30,9 @@ ownedMinimumDisposition_description: |
   101 -> Disable minimum disposition feature
   0 -> Disable restrictions on owned books by NPC (not by faction)
 
-messages_groupName: Messages
-messages_groupDescription: >
-  Configure weights of appearing messages.
-  They don't have to equate to 100.
-  Set weight to 0 to disable message group.
-enableMessages_name: Enable Messages
-buyableLowDisposition_name: "Buyable Value: Low Disposition"
-buyableGenericMsgWeight_name: "Buyable Weight: Generic"
-buyableRacialMsgWeight_name: "Buyable Weight: Racial"
-buyableFactionMsgWeight_name: "Buyable Weight: Faction"
-buyableSpecificMsgWeight_name: "Buyable Weight: Specific"
-
 misc_groupName: Misceleneous
 modEnabled_name: Enable Mod
+enableMessages_name: Enable Messages
 enableCellWhitelist_name: Enable Logical Cell Whitelist
 enableCellWhitelist_description: |
   Allows you to read any books in public places, where it makes sense:

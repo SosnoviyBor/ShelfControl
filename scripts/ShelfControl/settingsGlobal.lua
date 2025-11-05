@@ -87,6 +87,13 @@ I.Settings.registerGroup {
             min = 0,
         },
         {
+            key = 'buyableUnlockableMsgWeight',
+            name = 'buyableUnlockableMsgWeight_name',
+            renderer = 'number',
+            default = 1,
+            min = 0,
+        },
+        {
             key = 'buyableRacialMsgWeight',
             name = 'buyableRacialMsgWeight_name',
             renderer = 'number',
@@ -121,6 +128,12 @@ I.Settings.registerGroup {
         {
             key = 'modEnabled',
             name = 'modEnabled_name',
+            renderer = 'checkbox',
+            default = true,
+        },
+        {
+            key = 'enableMessages',
+            name = 'enableMessages_name',
             renderer = 'checkbox',
             default = true,
         },
