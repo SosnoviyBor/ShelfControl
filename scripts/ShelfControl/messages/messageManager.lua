@@ -7,9 +7,9 @@ require("scripts.ShelfControl.messages.factionOwned")
 local sectionMisc = storage.globalSection("ShelfControl_misc")
 
 local dispatch = {
-    { check = function(o) return o.recordId and not o.sellsBooks end,   fn = PickNPCOwnedMessage },
-    { check = function(o) return o.recordId and o.sellsBooks end, fn = PickBuyableMessage },
-    { check = function(o) return o.factionId end,  fn = PickFactionOwnedMessage },
+    { check = function(o) return o.recordId and not o.sellsBooks end, fn = PickNPCOwnedMessage },
+    { check = function(o) return o.recordId and o.sellsBooks end,     fn = PickBuyableMessage },
+    { check = function(o) return o.factionId end,                     fn = PickFactionOwnedMessage },
 }
 
 function ShowMessage(ctx)
@@ -18,7 +18,7 @@ function ShowMessage(ctx)
     for _, rule in ipairs(dispatch) do
         if rule.check(ctx.owner) then
             local msg = rule.fn(ctx)
-            ctx.player:sendEvent("ShowMessage", {message = msg})
+            ctx.player:sendEvent("ShowMessage", { message = msg })
             break
         end
     end

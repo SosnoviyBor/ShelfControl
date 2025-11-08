@@ -7,3 +7,7 @@ function GetActiveActorByRecordId(recordId)
         end
     end
 end
+
+function GetRecord(obj)
+    return obj.type.records[obj.recordId]
+end

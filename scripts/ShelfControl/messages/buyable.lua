@@ -40,8 +40,7 @@ local function multipleVendorsNearby(ctx)
     for _, actor in pairs(world.activeActors) do
         if actor.type ~= types.NPC then goto continue end
 
-        local actorRecord = actor.type.records[actor.recordId]
-
+        local actorRecord = GetRecord(actor)
         local isVendor = false
         for _, isOffered in pairs(actorRecord.servicesOffered) do
             if isOffered then
@@ -109,7 +108,7 @@ local specificRules = {
 -- +----------------------------------+
 
 local function checkRacialMessages(actor)
-    local race = actor.type.records[actor.recordId].race
+    local race = GetRecord(actor).race
     local firstRacialMsgKey = msgSrc .. "racial_" .. race .. "_1"
     return l10n(firstRacialMsgKey) ~= firstRacialMsgKey
 end
@@ -133,11 +132,26 @@ local function collectGenericMessages(subgroups, ctx)
     return CollectAllMessagesByPrefix(prefix, l10n)
 end
 
+local function collectEggMessages(subgroups, ctx)
+    local prefix = msgSrc .. "easterEgg"
+    return CollectAllMessagesByPrefix(prefix, l10n)
+end
+
+local function collectUnlockableMessages(subgroups, ctx)
+    local msgs = {}
+    for group, _ in pairs(subgroups) do
+        local prefix = msgSrc .. "unlockable_" .. group
+        local collectedMsgs = CollectAllMessagesByPrefix(prefix, l10n)
+        AppendArray(msgs, collectedMsgs)
+    end
+    return msgs
+end
+
 local function collectRacialMessages(subgroups, ctx)
     local msgs = {}
     for group, _ in pairs(subgroups) do
         local actor = ctx[group].self
-        local race = actor.type.records[actor.recordId]
+        local race = GetRecord(actor).race
         local prefix = msgSrc .. "racial_" .. group .. race
         local collectedMsgs = CollectAllMessagesByPrefix(prefix, l10n)
         AppendArray(msgs, collectedMsgs)
@@ -170,6 +184,8 @@ end
 
 local msgCollectors = {
     generic = collectGenericMessages,
+    easterEgg = collectEggMessages,
+    unlockable = collectUnlockableMessages,
     racial = collectRacialMessages,
     faction = collectFactionMessages,
     specific = collectSpecificMessages,
@@ -182,6 +198,7 @@ local msgCollectors = {
 function PickBuyableMessage(ctx)
     local msgGroups = {
         generic = true,
+        easterEgg = true,
         unlockable = {
             caiusMet = false,
             nerevarine = false,
@@ -203,6 +220,7 @@ function PickBuyableMessage(ctx)
     }
     local weights = {
         generic    = 30,
+        easterEgg  = .1,
         unlockable = 1,
         racial     = 10,
         faction    = 10,

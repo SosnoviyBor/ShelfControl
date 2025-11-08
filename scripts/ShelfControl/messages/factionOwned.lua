@@ -1,6 +1,6 @@
 local core = require("openmw.core")
 
-local l10n = core.l10n("ShelfControl_msgFactions")
+local l10n = core.l10n("ShelfControl_messages")
 
 function PickFactionOwnedMessage(ctx)
     local messages = {

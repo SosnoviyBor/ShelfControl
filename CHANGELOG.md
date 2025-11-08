@@ -6,32 +6,12 @@
 
 - Fully rewritten codebase
 - New and context-based messages by Hyacinth
-- Added minimal disposition requirement to read the buyable/owned book
-- Books in libraries, temples and imperial cults (owned by IC member and have a shrine nearby) are now free to read
+- Added minimal disposition requirement to read owned books (80 by default)
+- Added minimal disposition requirement to read buyable books (disabled by default)
+- Books in libraries, temples and imperial cults are now free to read
 - Book owner's aliveness and presence are now taken into account
 - Option for mod to ignore books with scripts
 - Option for mod to ignore scrolls
-- Context-aware messages
-  - Buyable book
-    - Generic messages
-    - Unlockable messages
-      - Caius is met (he recieved his package)
-      - Player is nerevarine (received the Moon-and-Star)
-    - Racial messages
-      - Player race
-      - Owner race
-    - Faction messages
-      - Player faction
-      - Owner faction
-    - Specific messages
-      - Owner is Jobasha
-      - There are ordinators nearby
-      - There are multiple vendors nearby
-      - Owner's disposition is low (30 by default)
-  - NPC-owned book
-      - Generic messages
-  - Faction-owned book
-      - Generic messages
 
 ### Changes
 

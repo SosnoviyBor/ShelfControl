@@ -57,67 +57,6 @@ I.Settings.registerGroup {
 }
 
 I.Settings.registerGroup {
-    key = 'ShelfControl_messages',
-    page = 'ShelfControl',
-    l10n = 'ShelfControl_settings',
-    name = 'messages_groupName',
-    description = 'messages_groupDescription',
-    permanentStorage = true,
-    order = 3,
-    settings = {
-        {
-            key = 'enableMessages',
-            name = 'enableMessages_name',
-            renderer = 'checkbox',
-            default = true,
-        },
-        {
-            key = 'buyableLowDisposition',
-            name = 'buyableLowDisposition_name',
-            renderer = 'number',
-            integer = true,
-            default = 30,
-            min = -1,
-        },
-        {
-            key = 'buyableGenericMsgWeight',
-            name = 'buyableGenericMsgWeight_name',
-            renderer = 'number',
-            default = 30,
-            min = 0,
-        },
-        {
-            key = 'buyableUnlockableMsgWeight',
-            name = 'buyableUnlockableMsgWeight_name',
-            renderer = 'number',
-            default = 1,
-            min = 0,
-        },
-        {
-            key = 'buyableRacialMsgWeight',
-            name = 'buyableRacialMsgWeight_name',
-            renderer = 'number',
-            default = 10,
-            min = 0,
-        },
-        {
-            key = 'buyableFactionMsgWeight',
-            name = 'buyableFactionMsgWeight_name',
-            renderer = 'number',
-            default = 10,
-            min = 0,
-        },
-        {
-            key = 'buyableSpecificMsgWeight',
-            name = 'buyableSpecificMsgWeight_name',
-            renderer = 'number',
-            default = 100,
-            min = 0,
-        },
-    }
-}
-
-I.Settings.registerGroup {
     key = 'ShelfControl_misc',
     page = 'ShelfControl',
     l10n = 'ShelfControl_settings',
