@@ -53,7 +53,8 @@ local specificRules = {
 
 local function collectGenericMessages(subgroups, ctx)
     local prefix = msgSrc .. "generic"
-    return CollectAllMessagesByPrefix(prefix, l10n)
+    local name = GetRecord(ctx.owner.self).name
+    return CollectAllMessagesByPrefix(prefix, l10n, {npc_name = name})
 end
 
 local function collectEggMessages(subgroups, ctx)
@@ -63,9 +64,10 @@ end
 
 local function collectUnlockableMessages(subgroups, ctx)
     local msgs = {}
+    local name = GetRecord(ctx.owner.self).name
     for group, _ in pairs(subgroups) do
         local prefix = msgSrc .. "unlockable_" .. group
-        local collectedMsgs = CollectAllMessagesByPrefix(prefix, l10n)
+        local collectedMsgs = CollectAllMessagesByPrefix(prefix, l10n, {npc_name = name})
         AppendArray(msgs, collectedMsgs)
     end
     return msgs
@@ -73,9 +75,10 @@ end
 
 local function collectSpecificMessages(subgroups, ctx)
     local msgs = {}
+    local name = GetRecord(ctx.owner.self).name
     for group, _ in pairs(subgroups) do
         local prefix = msgSrc .. "specific_" .. group
-        local collectedMsgs = CollectAllMessagesByPrefix(prefix, l10n)
+        local collectedMsgs = CollectAllMessagesByPrefix(prefix, l10n, {npc_name = name})
         AppendArray(msgs, collectedMsgs)
     end
     return msgs
@@ -104,7 +107,7 @@ function PickNPCOwnedMessage(ctx)
     local weights = {
         generic    = 30,
         easterEgg  = .05,
-        unlockable = 1,
+        unlockable = 10,
         specific   = 100,
     }
 

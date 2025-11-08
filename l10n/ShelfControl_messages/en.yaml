@@ -157,21 +157,21 @@ npcOwned_generic_7: 'A Hlaalu receipt slips from the pages. "Sold to {npc_name}"
 
 # ===== Unlockable =====
 
-npcOwned_unlockable_dumbOrc_1: "As an Orc [with low intelligence], you struggle to read this. Best ask its owner, [NPC_NAME] for help."
+npcOwned_unlockable_dumbOrc_1: "As an Orc [with low intelligence], you struggle to read this. Best ask its owner, {npc_name} for help."
 
-npcOwned_unlockable_lowInt_1: 'Intelligence is too low to decipher it, thankfully there is a dedication to its owner, "[NPC_NAME]" inside the front cover.'
+npcOwned_unlockable_lowInt_1: 'Intelligence is too low to decipher it, thankfully there is a dedication to its owner, "{npc_name}" inside the front cover.'
 
-npcOwned_unlockable_highEnch_1: 'Daedric letters crawl across the cover as if they are alive, forming and reforming the name: "[NPC_NAME]." As a skilled enchanter, you know this enchantment is elegant and unmistakably hostile to unauthorized readers.'
-npcOwned_unlockable_highEnch_2: "[NPC_NAME]'s name is repeated in Daedric script which spills off the page when you open the cover. Crossing that boundary without permission seems ill-advised."
+npcOwned_unlockable_highEnch_1: 'Daedric letters crawl across the cover as if they are alive, forming and reforming the name: "{npc_name}." As a skilled enchanter, you know this enchantment is elegant and unmistakably hostile to unauthorized readers.'
+npcOwned_unlockable_highEnch_2: "{npc_name}'s name is repeated in Daedric script which spills off the page when you open the cover. Crossing that boundary without permission seems ill-advised."
 
 # ===== Specific =====
 
-npcOwned_specific_ownerIsOfMagicClass_1: "Magical wards shimmer across the cover, and a sigil identifies them as [NPC_NAME]'s work. Only the [NPC_CLASS]'s trust can bypass these protections."
-npcOwned_specific_ownerIsOfMagicClass_2: "The book pulses with protective enchantments bearing [NPC_NAME]'s magical signature. You sense the owner must lower these wards before you can read."
-npcOwned_specific_ownerIsOfMagicClass_3: 'A warning in flowing script: "[NPC_NAME]''s grimoire. Trespassers will be dealt with accordingly." The threat feels very real.'
-npcOwned_specific_ownerIsOfMagicClass_4: 'Your fingers touch the cover and red Daedric letters materialise in the air. "Property of [NPC_NAME], friend to Oblivion." The warning pulses with power.'
-npcOwned_specific_ownerIsOfMagicClass_5: 'Your hand passes through the cover as if through mist ... just an illusion. The real book materialises with visible wards and [NPC_NAME]''s name. "Clever," you think. "Paranoid, but clever."'
-npcOwned_specific_ownerIsOfMagicClass_6: 'Beside this tome sits a note in [NPC_NAME]''s hand: "Personal research. Do NOT touch, do NOT read, do NOT even THINK about it." The paper crackles with residual magic.'
+npcOwned_specific_ownerIsOfMagicClass_1: "Magical wards shimmer across the cover, and a sigil identifies them as {npc_name}'s work. Only the [NPC_CLASS]'s trust can bypass these protections."
+npcOwned_specific_ownerIsOfMagicClass_2: "The book pulses with protective enchantments bearing {npc_name}'s magical signature. You sense the owner must lower these wards before you can read."
+npcOwned_specific_ownerIsOfMagicClass_3: 'A warning in flowing script: "{npc_name}''s grimoire. Trespassers will be dealt with accordingly." The threat feels very real.'
+npcOwned_specific_ownerIsOfMagicClass_4: 'Your fingers touch the cover and red Daedric letters materialise in the air. "Property of {npc_name}, friend to Oblivion." The warning pulses with power.'
+npcOwned_specific_ownerIsOfMagicClass_5: 'Your hand passes through the cover as if through mist ... just an illusion. The real book materialises with visible wards and {npc_name}''s name. "Clever," you think. "Paranoid, but clever."'
+npcOwned_specific_ownerIsOfMagicClass_6: 'Beside this tome sits a note in {npc_name}''s hand: "Personal research. Do NOT touch, do NOT read, do NOT even THINK about it." The paper crackles with residual magic.'
 
 # ===== Easter Eggs =====
 
