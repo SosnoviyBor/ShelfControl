@@ -129,18 +129,6 @@ buyable_specific_dispositionLow_2: "The merchant’s glare is a warning and a re
 buyable_specific_dispositionLow_3: '“Do you think yourself entitled, outlander? Pay, or get out," you hear when you try to open this book.'
 buyable_specific_dispositionLow_4: 'The Bookseller narrows their eyes as you browse the books. "Do you take us for fools, outlander? Pay for what you would read."'
 
-# ===== Easter Eggs =====
-
-buyable_easterEgg_1: "nuh uh"
-buyable_easterEgg_2: 'Shelf Control says "No."'
-buyable_easterEgg_3: "You rolled an easter egg message!"
-buyable_easterEgg_4: "no"
-buyable_easterEgg_5: 'Hermeus Mora says "Screw this one mortal in particular."'
-buyable_easterEgg_6: "test"
-buyable_easterEgg_7: 'Todd the Almighty says "No."'
-buyable_easterEgg_8: "error"
-buyable_easterEgg_9: "You n'wah!"
-
 # +-----------------+
 # | NPC Owned books |
 # +-----------------+
@@ -166,37 +154,61 @@ npcOwned_unlockable_highEnch_2: "{npc_name}'s name is repeated in Daedric script
 
 # ===== Specific =====
 
-npcOwned_specific_ownerIsOfMagicClass_1: "Magical wards shimmer across the cover, and a sigil identifies them as {npc_name}'s work. Only the [NPC_CLASS]'s trust can bypass these protections."
+npcOwned_specific_ownerIsOfMagicClass_1: "Magical wards shimmer across the cover, and a sigil identifies them as {npc_name}'s work. Only the {npc_class}'s trust can bypass these protections."
 npcOwned_specific_ownerIsOfMagicClass_2: "The book pulses with protective enchantments bearing {npc_name}'s magical signature. You sense the owner must lower these wards before you can read."
 npcOwned_specific_ownerIsOfMagicClass_3: 'A warning in flowing script: "{npc_name}''s grimoire. Trespassers will be dealt with accordingly." The threat feels very real.'
 npcOwned_specific_ownerIsOfMagicClass_4: 'Your fingers touch the cover and red Daedric letters materialise in the air. "Property of {npc_name}, friend to Oblivion." The warning pulses with power.'
 npcOwned_specific_ownerIsOfMagicClass_5: 'Your hand passes through the cover as if through mist ... just an illusion. The real book materialises with visible wards and {npc_name}''s name. "Clever," you think. "Paranoid, but clever."'
 npcOwned_specific_ownerIsOfMagicClass_6: 'Beside this tome sits a note in {npc_name}''s hand: "Personal research. Do NOT touch, do NOT read, do NOT even THINK about it." The paper crackles with residual magic.'
 
-# ===== Easter Eggs =====
-
-npcOwned_easterEgg_1: "nuh uh"
-npcOwned_easterEgg_2: 'Shelf Control says "No."'
-npcOwned_easterEgg_3: "You rolled an easter egg message!"
-npcOwned_easterEgg_4: "no"
-npcOwned_easterEgg_5: 'Hermeus Mora says "Screw this one mortal in particular."'
-npcOwned_easterEgg_6: "test"
-npcOwned_easterEgg_7: 'Todd the Almighty says "No."'
-npcOwned_easterEgg_8: "error"
-npcOwned_easterEgg_9: "You n'wah!"
-
 # +---------------------+
 # | Faction Owned books |
 # +---------------------+
 
-# ===== Easter Eggs =====
+# ===== Generic =====
 
-factionOwned_easterEgg_1: "nuh uh"
-factionOwned_easterEgg_2: 'Shelf Control says "No."'
-factionOwned_easterEgg_3: "You rolled an easter egg message!"
-factionOwned_easterEgg_4: "no"
-factionOwned_easterEgg_5: 'Hermeus Mora says "Screw this one mortal in particular."'
-factionOwned_easterEgg_6: "test"
-factionOwned_easterEgg_7: 'Todd the Almighty says "No."'
-factionOwned_easterEgg_8: "error"
-factionOwned_easterEgg_9: "You n'wah!"
+factionOwned_generic_1: '"No, doesn''t worth the risk", you think to yourself. "Too many eyes."'
+factionOwned_generic_2: 'A simple note rests atop the cover: "Private. Do not touch." The handwriting is sharp, confident, and clearly not bluffing.'
+
+# ===== Specific =====
+
+factionOwned_specific_hlaalu_1: '{npc_name} gives you a look as if he is appraising you. "That book is mine, outlander. In House Hlaalu, trust is capital. Earn some with me, and I''ll consider sharing it."'
+factionOwned_specific_hlaalu_2: '{npc_name} says, "That''s personal property. We Hlaalu believe in relationships as much as transactions. Improve ours, and perhaps we can negotiate."'
+factionOwned_specific_hlaalu_3: '{npc_name}, the nearby Hlaalu, smiles thinly. "That book represents an investment and I don''t share investments with those who I don''t trust."'
+
+factionOwned_specific_redoran_1: '{npc_name}, a Redoran {npc_class}, stays your hand and stands firm. "That book is mine, outlander. Honor demands I only share it with those who have earned my respect. You have not."'
+factionOwned_specific_redoran_2: '"That book stays with those I trust," {npc_name} says. "You have given me no reason to count you among them."'
+
+factionOwned_specific_telvanni_1: 'A crackle of magic stops your hand. {npc_name} doesn''t even look up. "That book is warded to my person. Only those I deem worthy may touch it. You... are not yet."'
+factionOwned_specific_telvanni_2: '"Do you imagine I would allow a stranger gawk at my work?" {npc_name} asks coldly. "The Telvanni do not share power freely. Earn my trust if you dare."'
+
+factionOwned_specific_moragTong_1: '{npc_name}, the nearby {npc_class} speaks, "Hands off this book, outlander."'
+factionOwned_specific_moragTong_2: '"You move quietly," {npc_name} observes, "but not quietly enough."'
+factionOwned_specific_moragTong_3: 'I''ve killed for less than theft, {npc_name} says from across the room. "That book is mine, sanctioned and sealed. Step away."'
+
+# ===== Archetype =====
+
+factionOwned_archetype_mage_1: '{npc_name} casts a Lock spell on the book cover to prevent you from opening it. "That''s mine, not for casual perusal."'
+factionOwned_archetype_mage_2: '"Curious about my collection?" {npc_name} asks. "Understandable. But that book is personal. Prove yourself a worthy colleague first."'
+factionOwned_archetype_mage_3: '"Ah, you have a discerning eye," {npc_name} says. "But that''s my personal copy. Go and get your by yourself."'
+
+factionOwned_archetype_warrior_1: '"Not yet," {npc_name} says directly. "That book''s earned its place with me through hard contracts. You haven''t earned your place with me."'
+factionOwned_archetype_warrior_2: '{npc_name} meets your eyes. "I earned that volume through blood and sweat. You''ve earned nothing from me and I don''t like you. Change that."'
+
+factionOwned_archetype_rogue_1: '"That one''s mine" {npc_name} says casually.'
+factionOwned_archetype_rogue_2: 'A scrap of parchment slips free: "{npc_name}"''s business. Eyes that don’t belong get removed.'' Judging by the ink, it wasn’t written as a joke.'
+factionOwned_archetype_rogue_3: 'A crude but effective note is pinned to the front: "Hands off. If you''re reading this, you''re already in trouble." Signed simply: {npc_name}.'
+
+# +--------------+
+# | Easter Eggs! |
+# +--------------+
+
+easterEgg_1: "nuh uh"
+easterEgg_2: 'Shelf Control says "No."'
+easterEgg_3: "You rolled an easter egg message!"
+easterEgg_4: "no"
+easterEgg_5: 'Hermeus Mora says "Screw this one mortal in particular."'
+easterEgg_6: "test"
+easterEgg_7: 'Todd the Almighty says "No."'
+easterEgg_8: "error"
+easterEgg_9: "You n'wah!"

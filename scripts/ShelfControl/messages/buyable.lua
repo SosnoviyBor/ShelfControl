@@ -26,7 +26,7 @@ local function ordinatorCity(ctx)
     -- by ordinators nearby
     for _, actor in pairs(world.activeActors) do
         if actor.type ~= types.NPC then goto continue end
-        if string.find(string.lower(actor.recordId), "ordinator") > 0 then
+        if string.find(string.lower(actor.recordId), "ordinator") then
             return true
         end
         ::continue::
@@ -132,11 +132,6 @@ local function collectGenericMessages(subgroups, ctx)
     return CollectAllMessagesByPrefix(prefix, l10n)
 end
 
-local function collectEggMessages(subgroups, ctx)
-    local prefix = msgSrc .. "easterEgg"
-    return CollectAllMessagesByPrefix(prefix, l10n)
-end
-
 local function collectUnlockableMessages(subgroups, ctx)
     local msgs = {}
     for group, _ in pairs(subgroups) do
@@ -184,7 +179,7 @@ end
 
 local msgCollectors = {
     generic = collectGenericMessages,
-    easterEgg = collectEggMessages,
+    easterEgg = CollectEggMessages,
     unlockable = collectUnlockableMessages,
     racial = collectRacialMessages,
     faction = collectFactionMessages,

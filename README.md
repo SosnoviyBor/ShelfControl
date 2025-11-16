@@ -28,7 +28,7 @@ A book is considered owned if:
 
 - OR it has a living NPC owner (unloaded NPCs don't count as owners)
   - It will be available to read if owner's disposition is high enough (configurable, 80 by default)
-- OR it is faction-owned
+- OR it is faction-owned and there's anyone nearby
   - It will be available to read only when you advance far enough in the faction that it becomes free for you (vanilla behavior, unaffected by the mod)
 
 ### Libraries Might Actually Be Libraries

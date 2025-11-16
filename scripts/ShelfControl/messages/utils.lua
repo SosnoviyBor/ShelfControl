@@ -1,3 +1,12 @@
+local storage = require("openmw.storage")
+local types = require("openmw.types")
+local core = require("openmw.core")
+
+require("scripts.ShelfControl.utils.random")
+
+local sectionMisc = storage.globalSection("ShelfControl_misc")
+local l10nMsgs = core.l10n("ShelfControl_messages")
+
 local function tableIsEmptyOrFalse(tbl)
     if type(tbl) ~= "table" then
         return tbl == false
@@ -32,6 +41,11 @@ function PruneMessageGroups(messages, weights)
             weights[key] = nil
         end
     end
+    -- debug print
+    if sectionMisc:get("enableDebug") then
+        print("Possible message groups:")
+        PrintTable(messages, 2)
+    end
 end
 
 function CollectAllMessagesByPrefix(prefix, l10n, ctx)
@@ -47,4 +61,19 @@ function CollectAllMessagesByPrefix(prefix, l10n, ctx)
         end
     end
     return msgs
+end
+
+function CollectEggMessages()
+    return CollectAllMessagesByPrefix("easterEgg", l10nMsgs)
+end
+
+function AdditionalMsgCtx(npcRecord)
+    return {
+        npc_name = npcRecord.name,
+        npc_class = npcRecord.class,
+    }
+end
+
+function GetRandomLocalNpc(ctx)
+    return RandomChoice(ctx.book.cell:getAll(types.NPC))
 end

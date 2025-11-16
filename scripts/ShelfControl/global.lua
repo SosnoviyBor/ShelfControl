@@ -26,24 +26,25 @@ end
 
 -- true = allow activation, false = block activation
 local function onBookActivation(book, actor)
+    print(GetRecord(book).isScroll)
     if not sectionMisc:get("modEnabled") then return true end
     -- if not player
     if not types.Player.objectIsInstance(actor) then return true end
     -- if book has an mwscript attached
-    local bookRecord = book.type.records[book.recordId]
+    local bookRecord = GetRecord(book)
     if sectionMisc:get("ignoreBooksWithMWScripts") and bookRecord.mwscript then return true end
     -- if book is a scroll
     if sectionMisc:get("ignoreScrolls") and bookRecord.isScroll then return true end
 
     local ctx = {
         book = book,
-        -- bookRecord = bookRecord,
         owner = Owner.new(book, actor),
         player = actor,
     }
     -- check buyable and owned conditions
     if checkOwnership(sectionBuyable, IsBuyable, ctx)
-        or checkOwnership(sectionOwned, IsOwned, ctx)
+        or checkOwnership(sectionOwned, IsNpcOwned, ctx)
+        or checkOwnership(sectionOwned, IsFactionOwned, ctx)
     then
         return false
     end

@@ -11,7 +11,7 @@
 - Books in libraries, temples and imperial cults are now free to read
 - Book owner's aliveness and presence are now taken into account
 - Option for mod to ignore books with scripts
-- Option for mod to ignore scrolls
+- Option for mod to ignore scrolls, paper etc.
 
 ### Changes
 

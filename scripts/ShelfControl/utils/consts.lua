@@ -1,5 +1,17 @@
 MAXINT = 2 ^ 53
 
+UnrestrictiveFactions = {
+    -- vanilla
+    ["temple"] = true,
+    ["imperial cult"] = true,
+    ["talos cult"] = true,
+    -- TD
+    ["t_mw_temple"] = true,
+    ["t_mw_imperialCult"] = true,
+    ["t_cyr_imperialCult"] = true,
+    ["t_sky_imperialCult"] = true,
+}
+
 -- +----------------------------------+
 -- | Consts for buyable book messages |
 -- +----------------------------------+
@@ -48,3 +60,40 @@ MagicClasses = {
 }
 LOW_INT = 30
 HIGH_ENCH = 75
+
+-- +----------------------------------------+
+-- | Consts for faction owned book messages |
+-- +----------------------------------------+
+
+FactionArchetypes = {
+    -- it's all over the place, I know...
+    mage = {
+        -- vanilla
+        ["mages guild"] = true,
+        telvanni = true,
+        -- TD
+        ["t_cyr_magesguild"] = true,
+        ["t_ham_magesguild"] = true,
+        ["t_sky_magesguild"] = true,
+    },
+    warrior = {
+        -- vanilla
+        ["fighters guild"] = true,
+        ["imperial legion"] = true,
+        redoran = true,
+        blades = true,
+        -- TD
+        ["t_cyr_imperiallegion"] = true,
+        ["t_cyr_blades"] = true,
+        ["t_sky_fightersguild"] = true,
+    },
+    rogue = {
+        -- vanilla
+        ["thieves guild"] = true,
+        ["morag tong"] = true,
+        hlaalu = true,
+        -- TD
+        ["t_cyr_thievesguild"] = true,
+        ["t_sky_thievesguild"] = true,
+    }
+}
