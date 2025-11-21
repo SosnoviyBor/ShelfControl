@@ -38,7 +38,7 @@ enableCellWhitelist_description: |
   Allows you to read any books in public places, where it makes sense:
   - Libraries
   - Temples
-  - Imperial cult shrines, chapels, etc
+  - Imperial cult shrines, chapels, etc.
 ignoreBooksWithMWScripts_name: Ignore Books With Attached MWScripts
-ignoreScrolls_name: Ignore Scrolls, Paper etc.
+ignoreScrolls_name: Ignore Scrolls, Paper, etc.
 enableDebug_name: Enable Debug Output

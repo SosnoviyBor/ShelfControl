@@ -92,7 +92,6 @@ I.Settings.registerGroup {
         {
             key = 'ignoreScrolls',
             name = 'ignoreScrolls_name',
-            description = 'ignoreScrolls_description',
             renderer = 'checkbox',
             default = true,
         },
