@@ -12,65 +12,66 @@ Also - you wouldn't appreciate it if a stranger barged into your home, grabbed a
 
 ### Shops Are Not Libraries
 
-In book shops you need to actually buy books before reading them.  
+In bookshops, you actually need to buy books before reading them.  
 A book is considered buyable if:
 
 - It has a living NPC owner (unloaded NPCs don't count)
 - The owner sells books
 
-By default the only option to read a buyable book is to actually buy it, but you can enable an additional disposition check in the settings. Then if your disposition with bookseller is high enough, he might allow you to read it.
+By default, the only way to read a buyable book is to purchase it, but you can enable an additional disposition check in the settings. If your disposition with the bookseller is high enough, they may allow you to read it.
 
 ### Other People's Homes Are Not Libraries
 
-Regular people won't charge you. They also won't let you touch their personal shelves. Maybe if you befriend them, they'll be less restrictive?
+Regular folks won't charge you, but they also won't let you touch their personal shelves. Maybe if you befriend them, they'll be less restrictive?
 
 A book is considered owned if:
 
-- OR it has a living NPC owner (unloaded NPCs don't count as owners)
-  - It will be available to read if owner's disposition is high enough (configurable, 80 by default)
-- OR it is faction-owned and there's anyone nearby
-  - It will be available to read only when you advance far enough in the faction that it becomes free for you (vanilla behavior, unaffected by the mod)
+- It has a living NPC owner (unloaded NPCs don't count)
+  - It becomes readable if the owner's disposition is high enough (configurable, 80 by default)
+- OR it is faction-owned and someone from that faction is nearby
+  - It becomes readable only when your rank is high enough for the faction to treat its items as free for you (vanilla behavior, unchanged)
+  - Books owned by Temple and Imperial Cult are free to read. All PT factions are supported too.
 
 ### Libraries Might Actually Be Libraries
 
-It wouldn't make sense if you couldn't read in places that encourage reading. These include:
+It wouldn't make sense if you couldn't read in places designed for reading. These include:
 
 - **Libraries** - cell name contains `library`
 - **Temples** - cell name contains `temple`
-- **Imperial cult shrines, chapels, etc**
-  - OR cell name contains `chapel`
-  - OR cell name contains `shrine`
-  - OR the cell has an Imperial shrine (any activator with `shrineimperial` script) AND the book is owned by a member of the Imperial Cult faction / a `Priest` class NPC
+- **Imperial cult shrines, chapels, etc.**
+  - Cell name contains `chapel` or `shrine`
+  - OR the cell has an Imperial shrine (any activator with the `shrineimperial` script) **and** the book is owned by an Imperial Cult member or a `Priest`-class NPC
 
 ### Context-sensitive In-Game Messages
 
 Vendors will yell at you!  
 You will question your actions!  
-Ordinators will call you scum for a reason now!  
-And so much more...
+Ordinators will call you scum - for a reason this time!  
+And much more...
 
 ## Requirements
 
-You need to play on one of the supported languages:
+You need to play in one of the supported languages:
 
 - English
 
-If you want to add support for other languages, you need to add translation only for the `ShelfControl_cells` part of localization (which is just a couple lines long).
+If you want to add support for more languages, you only need to translate the `ShelfControl_cells` part of the localization (which is just a few lines).
 
 ## Compatibility
 
-Books with scripts attached to them are ignored by default, so it shouldn't conflict with any mwscripts. Though, it's toggleable if you feel particularly risky.
+Books with scripts attached to them are ignored by default, so it shouldn't conflict with any mwscripts. Though, it's toggleable if you feel particularly brave.
 
 Might conflict with other lua mods that alter owned book activation (similar to this mod). Though I haven't encountered any yet.
 
-Confirmed to be compatible:
+Confirmed compatible:
 
 - [OpenMW Animated Pickup and Shop Around](https://www.nexusmods.com/morrowind/mods/54585) by **taitechnic** - Doesn't affect books at all
 - [Book Pickup](https://www.nexusmods.com/morrowind/mods/46625) by **NullCascade and Zackhasacat** - Alters only unowned books
+- TR, SHotN, PC by **Project Tamriel Team** - Explicit support for factions and classes added by these mods
 
 ## Known Issues
 
-Since you can no longer open certain owned books, to steal them you'll need to do it with open inventory using the cursor. And due to current limitations of Lua API this cannot be changed yet. The best I can offer so far is an option to disable restrictions for scrolls.
+Since you can no longer open certain owned books, you'll need to steal them via open inventory using the cursor. Due to current Lua API limitations, this cannot be changed yet. The best I can offer for now is an option to disable restrictions for scrolls/paper/newsletters/etc.
 
 ## Other Mods to Enhance Your Reading Experience
 
