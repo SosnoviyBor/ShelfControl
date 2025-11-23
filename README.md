@@ -68,6 +68,7 @@ Confirmed compatible:
 - [OpenMW Animated Pickup and Shop Around](https://www.nexusmods.com/morrowind/mods/54585) by **taitechnic** - Doesn't affect books at all
 - [Book Pickup](https://www.nexusmods.com/morrowind/mods/46625) by **NullCascade and Zackhasacat** - Alters only unowned books
 - TR, SHotN, PC by **Project Tamriel Team** - Explicit support for factions and classes added by these mods
+- - [trav's OpenMW Books Enhanced](https://www.nexusmods.com/morrowind/mods/55126) by **trav** - Read indicator doesn't appear if access to the book is denied
 
 ## Known Issues
 
@@ -78,10 +79,10 @@ Since you can no longer open certain owned books, you'll need to steal them via 
 - [trav's OpenMW Books Enhanced](https://www.nexusmods.com/morrowind/mods/55126) by **trav** - Replaces the book/scroll in-game UI with a custom one mimicking the vanilla look, but with additional features like adjustable size.
 - [Book Pickup](https://www.nexusmods.com/morrowind/mods/46625) by **NullCascade and Zackhasacat** - Lets you pick up a book without opening it first.
 - [Dead Mer Tell No Tales](https://www.nexusmods.com/morrowind/mods/57431) by **Sosnoviy Bor (me 😳)** - Clears object ownership if their owner suddenly ceases to exist.
-- [The Spell Tomes - Magic Books of Morrowind to Study and Cast to](https://www.nexusmods.com/morrowind/mods/57432) by **Hyancinth** - Adds spell tomes that you can use for learning spells.
+- [The Spell Tomes - Magic Books of Morrowind to Study and Cast to](https://www.nexusmods.com/morrowind/mods/57432) by **Hyacinth** - Adds spell tomes that you can use for learning spells.
 
 ## Credits
 
 **Sosnoviy Bor** - Author  
-**BCEMXAXA** - Cover artwork  
-**Hyancinth** - Message writing
+**BcemXaxa** - Cover artwork  
+**Hyacinth** - Message writing
