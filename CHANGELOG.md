@@ -1,4 +1,4 @@
-# No Money - No Books (OpenMW)
+# Shelf Control (OpenMW)
 
 ## 2.0.1
 
