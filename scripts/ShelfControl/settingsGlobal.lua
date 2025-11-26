@@ -1,7 +1,7 @@
 local I = require('openmw.interfaces')
 
 I.Settings.registerGroup {
-    key = 'ShelfControl_buyable',
+    key = 'SettingsShelfControl_buyable',
     page = 'ShelfControl',
     l10n = 'ShelfControl_settings',
     name = 'buyable_groupName',
@@ -29,7 +29,7 @@ I.Settings.registerGroup {
 }
 
 I.Settings.registerGroup {
-    key = 'ShelfControl_owned',
+    key = 'SettingsShelfControl_owned',
     page = 'ShelfControl',
     l10n = 'ShelfControl_settings',
     name = 'owned_groupName',
@@ -57,7 +57,7 @@ I.Settings.registerGroup {
 }
 
 I.Settings.registerGroup {
-    key = 'ShelfControl_misc',
+    key = 'SettingsShelfControl_misc',
     page = 'ShelfControl',
     l10n = 'ShelfControl_settings',
     name = 'misc_groupName',

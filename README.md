@@ -68,7 +68,7 @@ Confirmed compatible:
 - [OpenMW Animated Pickup and Shop Around](https://www.nexusmods.com/morrowind/mods/54585) by **taitechnic** - Doesn't affect books at all
 - [Book Pickup](https://www.nexusmods.com/morrowind/mods/46625) by **NullCascade and Zackhasacat** - Alters only unowned books
 - TR, SHotN, PC by **Project Tamriel Team** - Explicit support for factions and classes added by these mods
-- - [trav's OpenMW Books Enhanced](https://www.nexusmods.com/morrowind/mods/55126) by **trav** - Read indicator doesn't appear if access to the book is denied
+- [trav's OpenMW Books Enhanced](https://www.nexusmods.com/morrowind/mods/55126) by **trav** - Read indicator doesn't appear if access to the book is denied
 
 ## Known Issues
 

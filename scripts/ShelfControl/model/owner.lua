@@ -3,7 +3,7 @@ local storage = require("openmw.storage")
 
 require("scripts.ShelfControl.utils.openmw_utils")
 
-local sectionMisc = storage.globalSection("ShelfControl_misc")
+local sectionMisc = storage.globalSection("SettingsShelfControl_misc")
 
 --- Represents a book owner and provides helper methods.
 --- @class Owner

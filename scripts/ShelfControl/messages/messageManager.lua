@@ -4,7 +4,7 @@ require("scripts.ShelfControl.messages.buyable")
 require("scripts.ShelfControl.messages.npcOwned")
 require("scripts.ShelfControl.messages.factionOwned")
 
-local sectionMisc = storage.globalSection("ShelfControl_misc")
+local sectionMisc = storage.globalSection("SettingsShelfControl_misc")
 
 local dispatch = {
     { check = function(o) return o.recordId and not o.sellsBooks end, fn = PickNPCOwnedMessage },

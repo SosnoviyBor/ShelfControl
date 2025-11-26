@@ -8,9 +8,9 @@ require("scripts.ShelfControl.checkers.cells")
 require("scripts.ShelfControl.utils.openmw_utils")
 require("scripts.ShelfControl.messages.messageManager")
 
-local sectionBuyable = storage.globalSection("ShelfControl_buyable")
-local sectionOwned = storage.globalSection("ShelfControl_owned")
-local sectionMisc = storage.globalSection("ShelfControl_misc")
+local sectionBuyable = storage.globalSection("SSettingshelfControl_buyable")
+local sectionOwned = storage.globalSection("SettingsShelfControl_owned")
+local sectionMisc = storage.globalSection("SettingsShelfControl_misc")
 
 local function checkOwnership(section, ownershipChecker, ctx)
     if section:get("supress")
@@ -26,7 +26,6 @@ end
 
 -- true = allow activation, false = block activation
 local function onBookActivation(book, actor)
-    print(GetRecord(book).isScroll)
     if not sectionMisc:get("modEnabled") then return true end
     -- if not player
     if not types.Player.objectIsInstance(actor) then return true end

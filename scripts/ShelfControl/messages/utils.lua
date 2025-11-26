@@ -4,7 +4,7 @@ local core = require("openmw.core")
 
 require("scripts.ShelfControl.utils.random")
 
-local sectionMisc = storage.globalSection("ShelfControl_misc")
+local sectionMisc = storage.globalSection("SettingsShelfControl_misc")
 local l10nMsgs = core.l10n("ShelfControl_messages")
 
 local function tableIsEmptyOrFalse(tbl)

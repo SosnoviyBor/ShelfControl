@@ -1,5 +1,11 @@
 # No Money - No Books (OpenMW)
 
+## 2.0.1
+
+### Fixes
+
+- Fixed internal naming to reduce warnings in the log
+
 ## 2.0
 
 ### Features
